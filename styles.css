@@ -1,0 +1,111 @@
+html {
+  font-size: 10px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 1.6;
+}
+
+.navbar {
+  font-size: 1.6rem;
+}
+.navbar__section {
+  width: 100vw;
+  height: 40rem;
+  background-color: #236192;
+}
+.navbar__header {
+  height: 6.4rem;
+  padding: 0 2.4rem;
+}
+.navbar__container {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #FFF;
+}
+.navbar__item {
+  color: #FFF;
+  text-transform: uppercase;
+  flex: 1 1 30%;
+}
+.navbar__subitem {
+  text-transform: uppercase;
+  font-family: "Raleway", serif;
+  font-size: 1.28rem;
+  letter-spacing: 0.2rem;
+}
+.navbar__navigation {
+  display: flex;
+  gap: 3.2rem;
+  align-items: center;
+  justify-content: start;
+}
+.navbar__link {
+  text-decoration: none;
+}
+.navbar__logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.4rem;
+  line-height: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.navbar__logo--first {
+  font-size: 3rem;
+  letter-spacing: 1rem;
+  margin-right: -0.7rem;
+}
+.navbar__languages {
+  display: flex;
+  align-items: center;
+}
+.navbar__book-now {
+  display: flex;
+  justify-content: end;
+}
+.navbar__button {
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+.navbar__button-menu {
+  width: 4.8rem;
+  height: 4.8rem;
+  position: relative;
+}
+.navbar__button-menu-line {
+  position: absolute;
+  display: block;
+  height: 1px;
+  left: 0;
+  width: 100%;
+  transition-property: background;
+  background-color: #FFF;
+}
+.navbar__button-menu-line--one {
+  top: 1.8rem;
+}
+.navbar__button-menu-line--two {
+  top: 3.1rem;
+}
+
+.icon {
+  display: inline-block;
+  width: 2.6rem;
+  height: 2.6rem;
+  fill: #FFF;
+}
+
+.hidden {
+  display: none;
+}/*# sourceMappingURL=styles.css.map */
