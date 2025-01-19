@@ -3,11 +3,16 @@ $font-family-secondary: "Old Standard TT", serif;
 $font-family-tertiary: "Cormorant Garamond", serif;
 
 $color-lapis-lazuli: #236192;
+$color-black: #000000;
 $color-white: #FFF;
+$color-white-low-opasity: #ffffffe6;
+$color-grey-transparent: #aaaaaa33;
+$color-pale-silver-transparent: #cbc4bc1a;
 
 
 html{
     font-size: 10px;
+    scroll-behavior: smooth;
 }
 
 html, body{
@@ -17,25 +22,42 @@ html, body{
 
 body{
     line-height: 1.6;
+    //background-color: $color-pale-silver-transparent;
+    background-color: $color-lapis-lazuli;
+    height: 200vh;
+    position: relative;
 }
 
 .navbar{
     font-size: 1.6rem;
     &__section{
-        width: 100vw;
-        height: 40rem;
-        background-color: $color-lapis-lazuli;
+        width: 100%;
+        height: 6.4rem;
+        position: fixed;
+        top: 0;
     }
     &__header{
         height: 6.4rem;
         padding: 0 2.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: all .8s ease-in;
+        & hr{
+            border: none;
+            border-top: 1px solid $color-white;
+            margin: 0;
+            width: 100%;
+            transform: scale(0);
+            animation: entry__hr .75s ease 2s forwards;
+        }
     }
     &__container{
+        width: 100%;
         height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border-bottom: 1px solid $color-white;
     }
     &__item{
         color: $color-white;
@@ -50,7 +72,7 @@ body{
     }
     &__navigation{
         display: flex;
-        gap: 3.2rem;
+        gap: 2.4rem;
         align-items: center;
         justify-content: start;
     }
@@ -65,6 +87,9 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
+        opacity: 0;
+        transform: translateY(-1rem);
+        animation: entry__navbar-item .75s ease-in-out 2.55s forwards;
         &--first{
             font-size: 3rem;
             letter-spacing: 1rem;
@@ -73,12 +98,87 @@ body{
         }
     }
     &__languages{
+        position: absolute;
+        top: 0;
+        left: 0;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        &-wrapper{
+            cursor: pointer;
+            position: relative;
+            width: 13rem;
+            height: 6.4rem;
+        }
+        &-header{
+            display: flex;
+            align-items: center;
+            height: 6.4rem;
+            padding-left: .8rem;
+            opacity: 0;
+            transform: translateY(-1rem);
+            animation: entry__navbar-item .75s ease-in-out 2.9s forwards;
+        }
+        &-icon-container{
+            padding: 0 .3rem;
+            margin-bottom: -.3rem;
+        }
+        
+        &-alternative{
+            height: 4.8rem;
+            line-height: 4.8rem;
+            padding-left: .8rem;
+            
+            &--hide{
+                opacity: 0;
+                transform: translateX(-10px);
+                transition: all .5s ease;
+            }
+            &--show{
+                opacity: 1;
+                transform: translateX(0px);
+                transition: all .5s ease;
+            }
+        }
+        &-alternative:hover{
+            background-color: $color-grey-transparent;
+            transition: all .5s ease;
+        }
+    }
+    &__volume{
+        opacity: 0;
+        transform: translateY(-1rem);
+        animation: entry__navbar-item .75s ease-in-out 2.8s forwards;
     }
     &__book-now{
         display: flex;
         justify-content: end;
+        opacity: 0;
+        transform: translateY(-1rem);
+        animation: entry__navbar-item .75s ease-in-out 2.3s forwards;
+        &-button.navbar__button{
+            display: flex;
+            align-items: center;
+            background-color: $color-white;
+            border: 1px solid $color-white;
+            width: 15.7rem;
+            height: 4.2rem;
+            padding: 0;
+            & span{
+                color: $color-black;
+                font-family: $font-family-primary;
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                flex-grow: 1;
+            }
+            & img{
+                width: 4rem;
+                height: 4rem;
+                animation: book-now-button-out .5s ease forwards;
+            }
+        }
+        &-button:hover img{
+            animation: book-now-button-in .5s ease forwards;
+        }
     }
     &__button{
         border: none;
@@ -89,6 +189,9 @@ body{
             width: 4.8rem;
             height: 4.8rem;
             position: relative;
+            opacity: 0;
+            transform: translateY(-1rem);
+            animation: entry__navbar-item .75s ease-in-out 3s forwards;
             &-line{
                 position: absolute;
                 display: block;
@@ -107,15 +210,124 @@ body{
             }
         }
     }
+
+    &--hide{
+        transform: translateY(-6.4rem);
+        transition: all 1s ease .5s;
+    }
+
+    &--show{
+        transform: translateY(0);
+        transition: all 1s ease .5s;
+    }
+
+    .icon {
+        display: inline-block;
+        fill: $color-white;
+        width: 2.6rem;
+        height: 2.6rem;
+
+        &__chevron{
+            &--up{
+                transform: rotate(180deg);
+                transition: all .5s ease;
+            }
+    
+            &--down{
+                transform: rotate(0deg);
+                transition: all .5s ease;
+            }
+        }
+    }
+    
+    .hidden{
+        display: none;
+    }
 }
 
-.icon {
-    display: inline-block;
-    width: 2.6rem;
-    height: 2.6rem;
-    fill: $color-white;
+.navbar--light-bg{
+
+    .navbar{
+    
+        &__header{
+            background-color: $color-white-low-opasity;
+            transition: all .8s ease-in .1s;
+            & hr{
+                border-top: none;
+            }
+        }
+    
+        &__item{
+            color: $color-lapis-lazuli;
+        }
+    
+        &__book-now{
+    
+            &-button.navbar__button{
+                background-color: $color-white;
+                border-color: $color-black;
+                & span{
+                    color: $color-lapis-lazuli;
+                }
+            }
+        }
+        &__button{
+    
+            &-menu{
+    
+                &-line{
+                    background-color: $color-lapis-lazuli;
+    
+                }
+            }
+        }
+    }
+
+    .icon {
+        fill: $color-lapis-lazuli;
+      }
+}
+
+
+
+  @keyframes entry__hr{
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
   }
 
-  .hidden{
-    display: none;
+  @keyframes entry__navbar-item{
+    0%{
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+    80%{
+        opacity: .8;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+
+  @keyframes book-now-button-in {
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(-90deg);
+    }
+  }
+
+  @keyframes book-now-button-out {
+    0%{
+        transform: rotate(-90deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
   }
