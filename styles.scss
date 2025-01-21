@@ -27,10 +27,17 @@ html, body{
 
 body{
     line-height: 1.6;
-    //background-color: $color-pale-silver-transparent;
-    background-color: $color-lapis-lazuli;
+    background-color: $color-pale-silver-transparent;
+    //background-color: $color-lapis-lazuli;
     height: 200vh;
     position: relative;
+}
+.button{
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    background-color: inherit;
+    cursor: pointer;
 }
 
 .navbar{
@@ -247,10 +254,6 @@ body{
             }
         }
     }
-    
-    .hidden{
-        display: none;
-    }
 }
 
 .navbar--light-bg{
@@ -296,6 +299,37 @@ body{
       }
 }
 
+.volume{
+    &__button{
+        padding: 0;
+        .icon{
+            display: inline-block;
+            fill: $color-white;
+            width: 2.6rem;
+            height: 2.6rem;
+            margin-right: -50%;
+        }
+    }
+    &__floater{
+        position: fixed;
+        bottom: 1.6rem;
+        left: 1.6rem;
+        background-color: $color-lapis-lazuli;
+        width: 3.2rem;
+        height: 3.2rem;
+        border-radius: 50%;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+        display: none;
+    }
+    
+}
+
+.hidden{
+    display: none;
+}
+
 @media only screen and (max-width: 1279px) {
     ::-webkit-scrollbar {
         -webkit-appearance: none;
@@ -331,6 +365,13 @@ body{
         &__volume{
             display: none;
         }
+    }
+    .volume{
+
+        &__floater{
+            display: flex;
+        }
+        
     }
 }
 
