@@ -9,9 +9,14 @@ $color-white-low-opasity: #ffffffe6;
 $color-grey-transparent: #aaaaaa33;
 $color-pale-silver-transparent: #cbc4bc1a;
 
+:root{
+    margin: 0;
+    padding: 0;
+}
 
 html{
     font-size: 10px;
+    font-family: $font-family-primary;
     scroll-behavior: smooth;
 }
 
@@ -103,6 +108,9 @@ body{
         left: 0;
         display: flex;
         flex-direction: column;
+        &--short{
+            display: none;
+        }
         &-wrapper{
             cursor: pointer;
             position: relative;
@@ -229,7 +237,7 @@ body{
 
         &__chevron{
             &--up{
-                transform: rotate(180deg);
+                transform: rotate(-180deg);
                 transition: all .5s ease;
             }
     
@@ -286,6 +294,102 @@ body{
     .icon {
         fill: $color-lapis-lazuli;
       }
+}
+
+@media only screen and (max-width: 1279px) {
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+    }
+    .navbar{
+        &__book-now-button{
+            font-size: 1.2rem;
+            letter-spacing: .12rem;
+        }
+
+        &__header{
+            padding: 0 1.6rem;
+        }
+
+        &__languages-icon-container{
+            margin-bottom: -.6rem;
+        }
+
+        &__logo{
+            font-size: 1rem;
+
+            &--first{
+                font-size: 2.2rem;
+                letter-spacing: .75rem;
+                margin-right: -.4rem;
+            }
+        }
+
+        &__navigation{
+            gap: 1.6rem;
+        }
+
+        &__volume{
+            display: none;
+        }
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    
+}
+
+@media only screen and (max-width: 1023px) {
+    .navbar{
+        &__languages{
+            &--long{
+                display: none;
+            }
+            &--short{
+                display: block;
+            }
+            &-wrapper{
+                width: auto;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    
+}
+
+@media only screen and (max-width: 767px) {
+    .navbar{
+        &__book-now{
+            width: auto;
+        }
+
+        &__book-now-button.navbar__button{
+            width: 9.277rem;
+            height: 3.2rem;
+
+            img{
+                display: none;
+            }
+        }
+
+        &__logo{
+            font-size: .9rem;
+
+            &--first{
+                letter-spacing: 0.5rem;
+                margin-right: -.4rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+}
+
+@media only screen and (max-width: 424px) {
+    
 }
 
 
