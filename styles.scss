@@ -8,6 +8,7 @@ $color-white: #FFF;
 $color-white-low-opasity: #ffffffe6;
 $color-grey-transparent: #aaaaaa33;
 $color-pale-silver-transparent: #cbc4bc1a;
+$color-prussian-blue-mid-opacity: #00314e80;
 
 :root{
     margin: 0;
@@ -28,7 +29,6 @@ html, body{
 body{
     line-height: 1.6;
     background-color: $color-pale-silver-transparent;
-    //background-color: $color-lapis-lazuli;
     height: 200vh;
     position: relative;
 }
@@ -42,6 +42,7 @@ body{
 
 .navbar{
     font-size: 1.6rem;
+    z-index: 20;
     &__section{
         width: 100%;
         height: 6.4rem;
@@ -322,8 +323,67 @@ body{
         justify-content: center;
         align-items: center;
         display: none;
+        z-index: 20;
     }
     
+}
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-color: $color-lapis-lazuli;
+    position: relative;
+    &__video, &__overlay{
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        z-index: 0;
+    }
+    &__overlay{
+        &--shadow{
+            background-color: $color-prussian-blue-mid-opacity;
+            mix-blend-mode: multiply;
+            z-index: 1;
+        }
+        &--transparent{
+            z-index: 2;
+        }
+    }
+    
+    &__header{
+        text-transform: uppercase;
+        font-family: $font-family-tertiary;
+        color: $color-white;
+
+        &-container{
+            height: 100%;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            
+            &--one{
+                width: 28.25%;
+            }
+            &--two{
+                width: 52.5%;
+            }
+        }
+        
+        &--one{
+            font-size: 4vw;
+            letter-spacing: -.3rem;
+            padding-bottom: 5.78vw;
+        }
+        
+        &--two{
+            font-size: 10.5vw;
+            letter-spacing: -.2rem;
+            padding-top: 2.1vw;
+        }
+    }
 }
 
 .hidden{
@@ -334,6 +394,7 @@ body{
     ::-webkit-scrollbar {
         -webkit-appearance: none;
     }
+
     .navbar{
         &__book-now-button{
             font-size: 1.2rem;
@@ -366,6 +427,7 @@ body{
             display: none;
         }
     }
+
     .volume{
 
         &__floater{
@@ -390,6 +452,34 @@ body{
             }
             &-wrapper{
                 width: auto;
+            }
+        }
+    }
+
+    .hero{
+        &__header{
+    
+            &-container{
+                justify-content: center;
+                
+                &--one{
+                    width: 100%;
+                }
+                &--two{
+                    width: 100%;
+                }
+            }
+            
+            &--one{
+                font-size: 10vw;
+                letter-spacing: -.5rem;
+                padding-bottom: 32vw;
+            }
+            
+            &--two{
+                font-size: 27.5vw;
+                letter-spacing: -.5rem;
+                padding-top: 8.5vw;
             }
         }
     }
@@ -426,11 +516,37 @@ body{
 }
 
 @media only screen and (max-width: 600px) {
-
+    .hero{
+        &__header{
+                
+            &--one{
+                letter-spacing: -.3rem;
+                padding-bottom: 31.5vw;
+            }
+            
+            &--two{
+                letter-spacing: -.4rem;
+                padding-top: 5.5vw;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 424px) {
-    
+    .hero{
+        &__header{
+                
+            &--one{
+                letter-spacing: -.15rem;
+                padding-bottom: 31.5vw;
+            }
+            
+            &--two{
+                letter-spacing: -.1rem;
+                padding-top: 4vw;
+            }
+        }
+    }
 }
 
 

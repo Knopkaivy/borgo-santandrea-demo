@@ -31,6 +31,7 @@ body {
 
 .navbar {
   font-size: 1.6rem;
+  z-index: 20;
 }
 .navbar__section {
   width: 100%;
@@ -280,6 +281,60 @@ body {
   justify-content: center;
   align-items: center;
   display: none;
+  z-index: 20;
+}
+
+.hero {
+  width: 100%;
+  height: 100vh;
+  background-color: #236192;
+  position: relative;
+}
+.hero__video, .hero__overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  z-index: 0;
+}
+.hero__overlay--shadow {
+  background-color: rgba(0, 49, 78, 0.5019607843);
+  mix-blend-mode: multiply;
+  z-index: 1;
+}
+.hero__overlay--transparent {
+  z-index: 2;
+}
+.hero__header {
+  text-transform: uppercase;
+  font-family: "Cormorant Garamond", serif;
+  color: #FFF;
+}
+.hero__header-container {
+  height: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+.hero__header-container--one {
+  width: 28.25%;
+}
+.hero__header-container--two {
+  width: 52.5%;
+}
+.hero__header--one {
+  font-size: 4vw;
+  letter-spacing: -0.3rem;
+  padding-bottom: 5.78vw;
+}
+.hero__header--two {
+  font-size: 10.5vw;
+  letter-spacing: -0.2rem;
+  padding-top: 2.1vw;
 }
 
 .hidden {
@@ -328,6 +383,25 @@ body {
   .navbar__languages-wrapper {
     width: auto;
   }
+  .hero__header-container {
+    justify-content: center;
+  }
+  .hero__header-container--one {
+    width: 100%;
+  }
+  .hero__header-container--two {
+    width: 100%;
+  }
+  .hero__header--one {
+    font-size: 10vw;
+    letter-spacing: -0.5rem;
+    padding-bottom: 32vw;
+  }
+  .hero__header--two {
+    font-size: 27.5vw;
+    letter-spacing: -0.5rem;
+    padding-top: 8.5vw;
+  }
 }
 @media only screen and (max-width: 767px) {
   .navbar__book-now {
@@ -346,6 +420,26 @@ body {
   .navbar__logo--first {
     letter-spacing: 0.5rem;
     margin-right: -0.4rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .hero__header--one {
+    letter-spacing: -0.3rem;
+    padding-bottom: 31.5vw;
+  }
+  .hero__header--two {
+    letter-spacing: -0.4rem;
+    padding-top: 5.5vw;
+  }
+}
+@media only screen and (max-width: 424px) {
+  .hero__header--one {
+    letter-spacing: -0.15rem;
+    padding-bottom: 31.5vw;
+  }
+  .hero__header--two {
+    letter-spacing: -0.1rem;
+    padding-top: 4vw;
   }
 }
 @keyframes entry__hr {
