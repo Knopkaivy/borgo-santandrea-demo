@@ -23,6 +23,7 @@ const variables = {
 };
 const NAVBAR_HEIGHT = 108;
 const NAVBAR_STICKY_HEIGHT = 288;
+const LINK_TRANSLATE_FRACTION = .5;
 
 const navBar = document.querySelector(variables.idSelectors.navBar);
 const languagesDropdown = document.querySelector(variables.dataSelectors.languagesDropdown);
@@ -31,6 +32,7 @@ const languagesChevron = document.querySelector(variables.dataSelectors.language
 const volume = document.querySelector(variables.dataSelectors.volume);
 const volumeMute = document.querySelector(variables.dataSelectors.volumeMute);
 const volumeMedium = document.querySelector(variables.dataSelectors.volumeMedium);
+
 
 let oldScroll = 0;
 
@@ -55,6 +57,14 @@ window.addEventListener(
     { passive: true }
 );
 
+window.addEventListener(
+    "load",
+    (event) => {
+        createLinkObserver();
+    },
+    false,
+  );
+
 const navbarOnScrollUpdate = (event) =>{
     if(window.scrollY <= NAVBAR_HEIGHT) {
         navBar.classList.remove(variables.classes.navBarLightBG);
@@ -71,3 +81,44 @@ const navbarOnScrollUpdate = (event) =>{
     }
     oldScroll = window.scrollY;
 }
+
+/*const createLinkObserver = () =>{
+    const linkTranslateList = document.querySelectorAll();
+    
+    const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0,
+    };
+    
+    let observer = new IntersectionObserver((entries, observer) =>{
+        entries.forEach( entry => {
+            const ratio = entry.intersectionRatio;
+            let handler;
+            if(entry.isIntersecting){
+                console.log('intersection listener added');
+                handler = createTranslateHandler(entry.target);
+                window.addEventListener("scroll", handler);
+            } else {
+                console.log('intersection listener removed');
+                window.removeEventListener("scroll", handler);
+            }
+        })
+    }, options);
+
+    linkTranslateList.forEach(target => {
+        observer.observe(target);
+    })
+}
+
+const createTranslateHandler = (element) =>{
+    return handleElementTranslate(element);
+}
+
+const handleElementTranslate = (element) =>{
+    console.log(element);
+     TODO: scroll listener callback 
+    const translateY = (element.scrollTop/window.innerHeight)*LINK_TRANSLATE_FRACTION*element.offsetHeight*100; 
+    console.log(translateY);
+    element.style.transform = `translateY(${translateY}%)`;
+}*/
