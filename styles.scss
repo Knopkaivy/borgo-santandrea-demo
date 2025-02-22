@@ -7,12 +7,23 @@ $color-grey-transparent: #aaaaaa33;
 $color-granite-grey: #6e6259;
 $color-lapis-lazuli: #236192;
 $color-pale-silver: #cbc4bc;
+$color-pale-silver-med-opacity: #cbc4bc80;
 $color-pale-silver-transparent: #cbc4bc1a;
 $color-prussian-blue-mid-opacity: #00314e80;
 $color-white: #FFF;
 $color-white-low-opasity: #ffffffe6;
 
 $border-link: 2px solid $color-pale-silver;
+
+@mixin link-name {
+    border-bottom: $border-link;
+    color: inherit;
+    font-family: $font-family-secondary;
+    font-size: 1.4rem;
+    letter-spacing: .3rem;
+    text-wrap: nowrap;
+    padding: 0 .2rem .2rem .4rem;
+  }
 
 :root{
     margin: 0;
@@ -497,13 +508,91 @@ body{
             }
             
             &-name{
-                border-bottom: $border-link;
-                color: inherit;
-                font-family: $font-family-secondary;
-                font-size: 1.4rem;
-                letter-spacing: .3rem;
-                padding: 0 .2rem .2rem .4rem;
+                @include link-name;
             }
+        }
+    }
+}
+
+.story{
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22.4rem 0;
+    gap: 4rem;
+    font-family: $font-family-secondary;
+    color: $color-granite-grey;
+
+    &__headline{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 4vw;
+        margin-bottom: 4rem;
+
+        &-text{
+            font-size: 1.6rem;
+            letter-spacing: .576rem;
+            word-spacing: .576rem;
+            line-height: 1;
+            margin: 0;
+            
+            &-container{
+                width: 50%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+
+        &-border{
+            width: 15%;
+            border-bottom: 1px solid $color-pale-silver-med-opacity;
+        }
+    }
+
+    &__description{
+        width: 48%;
+        font-size: 1.8rem;
+        letter-spacing: .2rem;
+        line-height: 2.22;
+        text-align: center;
+    }
+
+    &__main-content{
+        margin-top: 16rem;
+        display: grid;
+        grid-template-columns: repeat(19, 1fr);
+        grid-template-rows: 1fr;
+    }
+
+    &__image-container{
+        &--main{
+            grid-column-start: 6;
+            grid-column-end: 15;
+            grid-row: 1;
+        }
+    }
+
+    &__link{
+        width: 100%;
+        display: flex;
+        gap: 6rem;
+        align-items: center;
+        text-decoration: none;
+        color: $color-granite-grey;
+
+        &-container{
+            grid-column-start: 14;
+            grid-column-end: 18;
+            grid-row: 1;
+            align-self: center;
+            padding-left: 4rem;
+        }
+
+        &-name{
+            @include link-name;
         }
     }
 }
@@ -578,6 +667,66 @@ body{
             }
         }
     }
+
+    .story{
+        padding: 8rem 0;
+
+        &__headline{
+            align-items: center;
+            gap: 4rem;
+            
+            &-text{
+                letter-spacing: .42rem;
+                word-spacing: .42rem;
+                width: 60%;
+                text-align: center;
+                line-height: 1.6;
+            }
+
+            &-border{
+                width: 12.5%;
+            }
+        }
+
+        &__description{
+            letter-spacing: 0;
+            line-height: 1.625;
+        }
+
+        &__image-container{
+
+            &--secondary{
+                width: 20.8rem;
+                height: 20.8rem;
+                overflow: hidden;
+
+            }
+            
+            & img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &__main-content{
+            margin-top: 4rem;
+        }
+
+        &__link{
+            gap: 4rem;
+
+            &-icon{
+                width: 9.6rem;
+                height: 9.6rem;
+
+                & img{
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1279px) {
@@ -625,10 +774,52 @@ body{
         }
         
     }
+
+    .story{
+        &__headline{
+            flex-direction: column;
+            gap: 3.2rem;
+
+            &-text{
+                width: 100%;
+                letter-spacing: .384rem;
+                word-spacing: .384rem;
+                &-container{
+                    width: 100%;
+
+                }
+            }
+        }
+
+        &__description{
+            width: 100%;
+        }
+
+        &__main-content{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: -4rem;
+        }
+
+        &__link{
+            flex-direction: column;
+            transform: translateY(-4rem);
+
+            &-container{
+                padding: 0;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1140px) {
-
+    .story{
+        &__headline-text{
+            letter-spacing: .342rem;
+            word-spacing: .342rem;
+        }
+    }
 }
 
 @media only screen and (max-width: 1023px) {
@@ -726,10 +917,39 @@ body{
             }
         }
     }
+
+    .story{
+        padding: 8rem 6.4rem;
+
+        &__headline{
+
+            &-text{
+                letter-spacing: .307rem;
+                word-spacing: .307rem;
+            }
+
+            &-border{
+                width: 15%;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 900px) {
-    
+    .story{
+        &__headline{
+            gap: 2.6rem;
+
+            &-text{
+                letter-spacing: .307rem;
+                word-spacing: .307rem;
+            }
+            
+            &-border{
+                width: 20%;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 767px) {
@@ -753,6 +973,20 @@ body{
             &--first{
                 letter-spacing: 0.5rem;
                 margin-right: -.4rem;
+            }
+        }
+    }
+
+    .story{
+        &__headline{
+
+            &-text{
+                letter-spacing: .23rem;
+                word-spacing: .23rem;
+            }
+
+            &-border{
+                width: 25%;
             }
         }
     }
@@ -828,6 +1062,20 @@ body{
             }
         }
     }
+    
+    .story{
+        &__headline{
+            
+            &-text{
+                letter-spacing: .18rem;
+                word-spacing: .18rem;
+            }
+            
+            &-border{
+                width: 36%;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 424px) {
@@ -881,6 +1129,20 @@ body{
 
             &-description{
                 padding-right: 0;
+            }
+        }
+    }
+        
+    .story{
+        &__headline{
+            
+            &-text{
+                letter-spacing: .18rem;
+                word-spacing: .18rem;
+            }
+            
+            &-border{
+                width: 55%;
             }
         }
     }
