@@ -60,7 +60,7 @@ window.addEventListener(
 window.addEventListener(
     "load",
     (event) => {
-        createLinkObserver();
+        /*createLinkObserver();*/
     },
     false,
   );
