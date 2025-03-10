@@ -10,6 +10,7 @@ $color-pale-silver: #cbc4bc;
 $color-pale-silver-med-opacity: #cbc4bc80;
 $color-pale-silver-transparent: #cbc4bc1a;
 $color-prussian-blue-mid-opacity: #00314e80;
+$color-snow: #faf9f8;
 $color-white: #FFF;
 $color-white-low-opasity: #ffffffe6;
 
@@ -525,33 +526,6 @@ body{
     font-family: $font-family-secondary;
     color: $color-granite-grey;
 
-    &__headline{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 4vw;
-        margin-bottom: 4rem;
-
-        &-text{
-            font-size: 1.6rem;
-            letter-spacing: .576rem;
-            word-spacing: .576rem;
-            line-height: 1;
-            margin: 0;
-            
-            &-container{
-                width: 50%;
-                display: flex;
-                justify-content: center;
-            }
-        }
-
-        &-border{
-            width: 15%;
-            border-bottom: 1px solid $color-pale-silver-med-opacity;
-        }
-    }
-
     &__description{
         width: 48%;
         font-size: 1.8rem;
@@ -664,6 +638,117 @@ body{
     }
 }
 
+.suites{
+    background-color: $color-white;
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 22.4rem;
+
+    &__main{
+        display: grid;
+        grid-template-columns: repeat(19, 1fr);
+        grid-template-rows: 1fr;
+        margin-top: 16rem;
+    }
+
+    &__image{
+
+        &-container{
+            &--main{
+                grid-column-start: 1;
+                grid-column-end: 15;
+                grid-row: 1;
+                overflow: hidden;
+
+                & img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+    }
+
+    &__content{
+
+        &-container{
+            background-color: $color-snow;
+            grid-column-start: 12;
+            grid-column-end: 20;
+            grid-row: 1;
+            height: fit-content;
+            padding: 16rem 27.5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-self: center;
+        }
+
+        &-description{
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            color: $color-granite-grey;
+            margin-bottom: 10rem;
+            p{
+                margin: 0;
+            }
+        }
+
+        &-text{
+            &--one{
+                font-family: $font-family-secondary;
+                font-size: 2.4rem;
+                letter-spacing: .055rem;
+                line-height: 1.7;
+            }
+            &--two{
+                font-size: 1.6rem;
+                line-height: 2;
+            }
+        }
+
+        &-image-container{
+            height: auto;
+            img{
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+
+        &-link{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: $color-granite-grey;
+
+            &:visited{
+                color: inherit;
+            }
+            &-icon{
+                transform: translateY(-40%);
+
+                & img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            
+            &-name{
+                @include link-name;
+
+                &--secondary{
+                    border: none;
+                }
+            }
+        }
+    }
+}
+
 .hidden{
     display: none;
 }
@@ -678,6 +763,35 @@ body{
 
     &--white{
         border-color: $color-white;
+    }
+}
+
+.headline{
+    font-family: $font-family-secondary;
+    color: $color-granite-grey;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 4vw;
+    margin-bottom: 4rem;
+
+    &__text{
+        font-size: 1.6rem;
+        letter-spacing: .576rem;
+        word-spacing: .576rem;
+        line-height: 1;
+        margin: 0;
+        
+        &-container{
+            width: 50%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__border{
+        width: 15%;
+        border-bottom: 1px solid $color-pale-silver-med-opacity;
     }
 }
 
@@ -742,23 +856,6 @@ body{
     .story{
         padding: 8rem 0;
 
-        &__headline{
-            align-items: center;
-            gap: 4rem;
-            
-            &-text{
-                letter-spacing: .42rem;
-                word-spacing: .42rem;
-                width: 60%;
-                text-align: center;
-                line-height: 1.6;
-            }
-
-            &-border{
-                width: 12.5%;
-            }
-        }
-
         &__description{
             letter-spacing: 0;
             line-height: 1.625;
@@ -815,6 +912,57 @@ body{
             }
         }
     }
+
+    .headline{
+        align-items: center;
+        gap: 4rem;
+        
+        &__text{
+            letter-spacing: .42rem;
+            word-spacing: .42rem;
+            width: 60%;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        &__border{
+            width: 12.5%;
+        }
+    }
+
+    .suites{
+
+        &__image{
+
+            &-container{
+                &--main{
+                    width: 74vw;
+                    height: 111vw;
+                }
+            }
+        }
+
+        &__content{
+
+            &-container{
+                padding: 8rem 20%;
+            }
+    
+            &-link{
+    
+    
+    
+                &-icon{
+                    width: 9.6rem;
+    
+                }
+                
+    
+    
+            }
+        }
+        
+    }
 }
 
 @media only screen and (max-width: 1279px) {
@@ -864,20 +1012,6 @@ body{
     }
 
     .story{
-        &__headline{
-            flex-direction: column;
-            gap: 3.2rem;
-
-            &-text{
-                width: 100%;
-                letter-spacing: .384rem;
-                word-spacing: .384rem;
-                &-container{
-                    width: 100%;
-
-                }
-            }
-        }
 
         &__description{
             width: 100%;
@@ -908,22 +1042,54 @@ body{
             }
         }
     }
+
+    .headline{
+        flex-direction: column;
+        gap: 3.2rem;
+
+        &__text{
+            width: 100%;
+            letter-spacing: .384rem;
+            word-spacing: .384rem;
+            &-container{
+                width: 100%;
+
+            }
+        }
+    }
+
+    .suites{
+
+        &__image{
+
+            &-container{
+                &--main{
+                    width: 74vw;
+                    height: 130vw;
+                }
+            }
+        }
+
+        &__content-container{
+            grid-column-start: 10;
+        }
+
+
+    }
 }
 
 @media only screen and (max-width: 1140px) {
-    .story{
-        &__headline-text{
-            letter-spacing: .342rem;
-            word-spacing: .342rem;
-        }
-    }
-    
     .gardens{
         &__content{
             &-container{
                 padding-right: 6rem;
             }
         }
+    }
+
+    .headline__text{
+        letter-spacing: .342rem;
+        word-spacing: .342rem;
     }
 }
 
@@ -1025,37 +1191,43 @@ body{
 
     .story{
         padding: 8rem 6.4rem;
+    }
 
-        &__headline{
+    .headline{
 
-            &-text{
-                letter-spacing: .307rem;
-                word-spacing: .307rem;
-            }
+        &__text{
+            letter-spacing: .307rem;
+            word-spacing: .307rem;
+        }
 
-            &-border{
-                width: 15%;
+        &__border{
+            width: 15%;
+        }
+    }
+
+    .suites{
+
+        &__image{
+
+            &-container{
+                &--main{
+                    grid-column-end: 20;
+                    width: 100vw;
+                    height: 150vw;
+                }
             }
         }
+
+        &__content-container{
+            grid-column-start: 4;
+            padding: 8rem 25%;
+        }
+
+
     }
 }
 
-@media only screen and (max-width: 900px) {
-    .story{
-        &__headline{
-            gap: 2.6rem;
-
-            &-text{
-                letter-spacing: .307rem;
-                word-spacing: .307rem;
-            }
-            
-            &-border{
-                width: 20%;
-            }
-        }
-    }
-    
+@media only screen and (max-width: 900px) {   
     .gardens{
         &__content{
             &-container{
@@ -1065,6 +1237,19 @@ body{
             &-text{
                 letter-spacing: .05rem;
             }
+        }
+    }
+
+    .headline{
+        gap: 2.6rem;
+
+        &__text{
+            letter-spacing: .307rem;
+            word-spacing: .307rem;
+        }
+        
+        &__border{
+            width: 20%;
         }
     }
 }
@@ -1093,21 +1278,7 @@ body{
             }
         }
     }
-
-    .story{
-        &__headline{
-
-            &-text{
-                letter-spacing: .23rem;
-                word-spacing: .23rem;
-            }
-
-            &-border{
-                width: 25%;
-            }
-        }
-    }
-        
+     
     .gardens{
         &__content{
             &-container{
@@ -1118,6 +1289,50 @@ body{
             &-text{
                 letter-spacing: 0;
                 font-size: 1.8rem;
+            }
+        }
+    }
+
+    .headline{
+
+        &__text{
+            letter-spacing: .23rem;
+            word-spacing: .23rem;
+        }
+
+        &__border{
+            width: 25%;
+        }
+    }
+
+    .suites{
+
+        &__image{
+
+            &-container{
+                &--main{
+                    align-self: end;
+    
+                    & img{
+                        width: 100%;
+                        object-fit: contain;
+                        object-position: bottom;
+                    }
+                }
+            }
+        }
+
+        &__content{
+
+            &-container{
+                margin-bottom: 25.6rem;
+                padding: 8rem 12.5%;
+            }
+
+            &-text{
+                &--one{
+                    font-size: 1.8rem;
+                }
             }
         }
     }
@@ -1193,7 +1408,19 @@ body{
             }
         }
     }
-    
+
+    .gardens{
+        &__content{
+            &-container{
+                padding-right: 4rem;
+            }
+
+            &-text{
+                font-size: 1.8rem;
+            }
+        }
+    }    
+
     .story{
         &__headline{
             
@@ -1204,18 +1431,6 @@ body{
             
             &-border{
                 width: 36%;
-            }
-        }
-    }
-
-    .gardens{
-        &__content{
-            &-container{
-                padding-right: 4rem;
-            }
-
-            &-text{
-                font-size: 1.8rem;
             }
         }
     }
