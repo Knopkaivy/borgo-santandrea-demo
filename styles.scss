@@ -46,7 +46,6 @@ html, body{
 body{
     line-height: 1.6;
     background-color: $color-white;
-    height: 200vh;
     position: relative;
 }
 .button{
@@ -55,6 +54,28 @@ body{
     font-family: inherit;
     background-color: inherit;
     cursor: pointer;
+}
+
+.content-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $color-granite-grey;
+    
+    &--vertical{
+        flex-direction: column;
+    }
+
+    &:visited{
+        color: inherit;
+    }
+    &__icon{
+        transform: translateY(-40%);
+    }
+    
+    &__name{
+        @include link-name;
+    }
 }
 
 .navbar{
@@ -834,6 +855,110 @@ body{
     }
 }
 
+.restaurant{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    color: $color-white;
+    overflow-y: hidden;
+    
+    &--is-scrollable{
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+        -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        scrollbar-width: none;  /* Firefox */
+    
+        &::-webkit-scrollbar { 
+            display: none;  /* Safari and Chrome */
+        }
+    }
+
+    &__overlay{
+        background: no-repeat url(./Images/bsa_home_ristorante_maschera.png);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        opacity: .8;
+    }
+
+    &__image-container{
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -2;
+        overflow: hidden;
+
+        & img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__header{
+        color: $color-pale-silver;
+        font-family: $font-family-tertiary;
+        font-size: 4.8rem;
+        font-weight: 400;
+        text-align: center;
+
+        &-container{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &__main{
+        width: 35%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 4rem;
+        
+        &-container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        &-content{
+            font-family: $font-family-secondary;
+            font-size: 2rem;
+            width: 42%;
+            line-height: 2;
+            letter-spacing: .05rem;
+            margin: 0;
+        }
+    }
+
+    &__link{
+        gap: 6rem;
+
+        &-name{
+            color: $color-white;
+            text-align: center;
+            text-wrap: wrap;
+            width: fit-content;
+            max-width: 10rem;
+        }
+    }
+}
+
+.club{
+    width: 100%;
+    height: 100vh;
+}
+
 .hidden{
     display: none;
 }
@@ -880,26 +1005,26 @@ body{
     }
 }
 
-.content-link{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: $color-granite-grey;
-
-    &:visited{
-        color: inherit;
-    }
-    &__icon{
-        transform: translateY(-40%);
-    }
-    
-    &__name{
-        @include link-name;
-    }
-}
 
 @media only screen and (max-width: 1440px) {
+        
+    .content-link{
+        flex-direction: column;
+        gap: 3rem;
+
+        &__icon{
+            transform: translateY(-50%);
+
+            & img{
+                width: 9.6rem;
+            }
+        }
+
+        &__name{
+            line-height: 1.43;
+        }
+    }
+    
     .haven{
 
         &__image-main{
@@ -1081,6 +1206,32 @@ body{
             }
         }
     }
+    
+    .restaurant{
+        
+        &__header{
+            font-size: 3.6rem;
+        }
+
+        &__main{
+
+            &-content{
+                font-size: 1.8rem;
+                letter-spacing: .045rem;
+                width: 70%;
+            }
+        }
+
+        &__link{
+
+            &-icon{
+
+                & img{
+                    width: 9.6rem;
+                }
+            }
+        }
+    }
 
     .headline{
         align-items: center;
@@ -1096,21 +1247,6 @@ body{
 
         &__border{
             width: 12.5%;
-        }
-    }
-    
-    .content-link{
-
-        &__icon{
-            transform: translateY(-50%);
-
-            & img{
-                width: 9.6rem;
-            }
-        }
-
-        &__name{
-            line-height: 1.43;
         }
     }
 }
@@ -1444,6 +1580,25 @@ body{
             }
         }
     }
+
+    .restaurant{
+
+        &__header{
+            padding: 0 6.4rem;
+        }
+
+        &__main{
+
+            &-container{
+                justify-content: start;
+                padding-left: 16rem;
+            }
+
+            &-content{
+                width: 75%;
+            }
+        }
+    }
     
     .headline{
 
@@ -1483,6 +1638,16 @@ body{
                 &--two{
                     font-size: 7.2rem;
                 }
+            }
+        }
+    }
+    
+    .restaurant{
+
+        &__main{
+
+            &-container{
+                padding-left: 14rem;
             }
         }
     }
@@ -1584,6 +1749,29 @@ body{
                 &--two{
                     font-size: 6rem;
                 }
+            }
+        }
+    }
+
+    .restaurant{
+        
+        &__header{
+            font-size: 2rem;
+            padding: 0 1.6rem;
+        }
+
+        &__main{
+            width: 100%;
+            justify-content: space-evenly;
+
+            &-container{
+                padding-left: 4rem;
+            }
+
+            &-content{
+                font-size: 1.6rem;
+                letter-spacing: normal;
+                width: 57%;
             }
         }
     }

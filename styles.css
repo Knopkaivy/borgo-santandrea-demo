@@ -18,7 +18,6 @@ html, body {
 body {
   line-height: 1.6;
   background-color: #FFF;
-  height: 200vh;
   position: relative;
 }
 
@@ -28,6 +27,31 @@ body {
   font-family: inherit;
   background-color: inherit;
   cursor: pointer;
+}
+
+.content-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #6e6259;
+}
+.content-link--vertical {
+  flex-direction: column;
+}
+.content-link:visited {
+  color: inherit;
+}
+.content-link__icon {
+  transform: translateY(-40%);
+}
+.content-link__name {
+  border-bottom: 2px solid #cbc4bc;
+  color: inherit;
+  font-family: "Old Standard TT", serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.3rem;
+  text-wrap: nowrap;
+  padding: 0 0.2rem 0.2rem 0.4rem;
 }
 
 .navbar {
@@ -726,6 +750,101 @@ body {
   font-size: 5.5rem;
 }
 
+.restaurant {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  color: #FFF;
+  overflow-y: hidden;
+}
+.restaurant--is-scrollable {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.restaurant--is-scrollable::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+.restaurant__overlay {
+  background: no-repeat url(./Images/bsa_home_ristorante_maschera.png);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  opacity: 0.8;
+}
+.restaurant__image-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -2;
+  overflow: hidden;
+}
+.restaurant__image-container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.restaurant__header {
+  color: #cbc4bc;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4.8rem;
+  font-weight: 400;
+  text-align: center;
+}
+.restaurant__header-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.restaurant__main {
+  width: 35%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 4rem;
+}
+.restaurant__main-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.restaurant__main-content {
+  font-family: "Old Standard TT", serif;
+  font-size: 2rem;
+  width: 42%;
+  line-height: 2;
+  letter-spacing: 0.05rem;
+  margin: 0;
+}
+.restaurant__link {
+  gap: 6rem;
+}
+.restaurant__link-name {
+  color: #FFF;
+  text-align: center;
+  text-wrap: wrap;
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: 10rem;
+}
+
+.club {
+  width: 100%;
+  height: 100vh;
+}
+
 .hidden {
   display: none;
 }
@@ -767,30 +886,20 @@ body {
   border-bottom: 1px solid rgba(203, 196, 188, 0.5019607843);
 }
 
-.content-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #6e6259;
-}
-.content-link:visited {
-  color: inherit;
-}
-.content-link__icon {
-  transform: translateY(-40%);
-}
-.content-link__name {
-  border-bottom: 2px solid #cbc4bc;
-  color: inherit;
-  font-family: "Old Standard TT", serif;
-  font-size: 1.4rem;
-  letter-spacing: 0.3rem;
-  text-wrap: nowrap;
-  padding: 0 0.2rem 0.2rem 0.4rem;
-}
-
 @media only screen and (max-width: 1440px) {
+  .content-link {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  .content-link__icon {
+    transform: translateY(-50%);
+  }
+  .content-link__icon img {
+    width: 9.6rem;
+  }
+  .content-link__name {
+    line-height: 1.43;
+  }
   .haven__image-main-container {
     height: 110vw;
     overflow: hidden;
@@ -902,6 +1011,17 @@ body {
   .jr-suite__main-header--two {
     font-size: 4.32rem;
   }
+  .restaurant__header {
+    font-size: 3.6rem;
+  }
+  .restaurant__main-content {
+    font-size: 1.8rem;
+    letter-spacing: 0.045rem;
+    width: 70%;
+  }
+  .restaurant__link-icon img {
+    width: 9.6rem;
+  }
   .headline {
     align-items: center;
     gap: 4rem;
@@ -915,15 +1035,6 @@ body {
   }
   .headline__border {
     width: 12.5%;
-  }
-  .content-link__icon {
-    transform: translateY(-50%);
-  }
-  .content-link__icon img {
-    width: 9.6rem;
-  }
-  .content-link__name {
-    line-height: 1.43;
   }
 }
 @media only screen and (max-width: 1279px) {
@@ -1129,6 +1240,16 @@ body {
   .jr-suite__image-container--main img {
     height: auto;
   }
+  .restaurant__header {
+    padding: 0 6.4rem;
+  }
+  .restaurant__main-container {
+    justify-content: start;
+    padding-left: 16rem;
+  }
+  .restaurant__main-content {
+    width: 75%;
+  }
   .headline__text {
     letter-spacing: 0.307rem;
     word-spacing: 0.307rem;
@@ -1149,6 +1270,9 @@ body {
   }
   .jr-suite__main-header--two {
     font-size: 7.2rem;
+  }
+  .restaurant__main-container {
+    padding-left: 14rem;
   }
   .headline {
     gap: 2.6rem;
@@ -1209,6 +1333,22 @@ body {
   }
   .jr-suite__main-header--two {
     font-size: 6rem;
+  }
+  .restaurant__header {
+    font-size: 2rem;
+    padding: 0 1.6rem;
+  }
+  .restaurant__main {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .restaurant__main-container {
+    padding-left: 4rem;
+  }
+  .restaurant__main-content {
+    font-size: 1.6rem;
+    letter-spacing: normal;
+    width: 57%;
   }
   .headline__text {
     letter-spacing: 0.23rem;
