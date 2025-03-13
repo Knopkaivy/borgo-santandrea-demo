@@ -108,6 +108,23 @@ body{
     }
 }
 
+.decoration-line{
+    border-bottom: 2px solid transparent;
+    width: 100px;
+
+    &--blue{
+        border-color: $color-lapis-lazuli;
+    }
+
+    &--white{
+        border-color: $color-white;
+    }
+
+    &--grey{
+        border-color: $color-pale-silver;
+    }
+}
+
 .navbar{
     font-size: 1.6rem;
     z-index: 20;
@@ -1146,30 +1163,181 @@ body{
     }
 }
 
-.hidden{
-    display: none;
-}
-
-.decoration-line{
-    border-bottom: 2px solid transparent;
-    width: 100px;
-
-    &--blue{
-        border-color: $color-lapis-lazuli;
-    }
-
-    &--white{
-        border-color: $color-white;
-    }
-}
-
 .swiper {
     height: 55vh;
 
     &-wrapper{
         left: -5%;
     }
-  }
+}
+
+.diary{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    box-sizing: border-box;
+
+    &__overlay{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $color-black;
+        opacity: .4;
+    }
+
+    &__image-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+        overflow: hidden;
+
+        & img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    &__content{
+
+        &-container{
+            height: 100vh;
+            box-sizing: border-box;
+            padding: 16rem 0;
+            display: grid;
+            grid-template-columns: repeat(19, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+        }
+        
+        &-description{
+            grid-row-start: 1;
+            grid-row-end: 2;
+            grid-column: 2;
+            grid-column-end: 8;
+            align-self: start;
+            display: flex;
+            gap: 5.26vw;
+        }
+
+        &-decoration-line{
+            align-self: start;
+            margin-top: 1rem;
+        }
+
+        &-header{
+            color: $color-pale-silver;
+            font-family: $font-family-tertiary;
+            font-weight: 300;
+            line-height: .7;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+
+            &--one{
+                font-size: 4.92rem;
+                letter-spacing: -.2;
+            }
+
+            &--two{
+                font-size: 11.52rem;
+            }
+        }
+
+        &-main{
+            grid-row-start: 2;
+            grid-row-end: 3;
+            grid-column-start: 1;
+            grid-column-end: 12;
+            align-self: end;
+            display: flex;
+            gap: 5.26vw;
+        }
+
+        &-images{
+            
+            &-container{
+                display: flex;
+                gap: 2.8rem;
+            }
+
+            &-block{
+                position: relative;
+                padding-left: 8.4vw;
+                box-sizing: border-box;
+            }
+
+            &-bg-line{
+                position: absolute;
+                top: 4rem;
+                left: 0;
+                width: 100%;
+                height: 6.4rem;
+                background-color: $color-white;
+                opacity: .3;
+                z-index: -1;
+            }
+        }
+
+        &-image{
+            width: 12.8rem;
+
+            & img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+
+            &-link{
+                text-decoration: none;
+                color: $color-white;
+
+                &:visited{
+                    color: $color-white;
+                }
+            }
+
+            &-name{
+                width: 100%;
+                font-family: $font-family-secondary;
+                font-size: 1.6rem;
+                letter-spacing: .32rem;
+                text-align: center;
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__link{
+        gap: 5rem;
+        cursor: default;
+
+        &-icon img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        &-name{
+            border: none;
+            color: $color-white;
+        }
+    }
+}
+
+.hidden{
+    display: none;
+}
+
+
 
 @media only screen and (max-width: 1440px) {
     .headline{
@@ -1446,6 +1614,74 @@ body{
             }
         }
     }
+
+    .diary{
+
+        &__content{
+
+            &-container{
+                padding: 11.2rem 0;
+            }
+
+            &-description{
+                grid-column-start: 4;
+                gap: 0;
+            }
+
+            
+            &-decoration-line{
+                display: none;
+            }
+
+            &-header{
+                line-height: 1;
+                gap: .5rem;
+
+                &--one{
+                    font-size: 2.4rem;
+                }
+
+                &--two{
+                    font-size: 6rem;
+                }
+            }
+
+            &-main{
+                grid-column-end: 14;
+            }
+
+            &-images{
+
+                &-block{
+                    padding-left: 18vw;
+                }
+
+                &-bg-line{
+                    top: 2rem;
+                }
+            }
+
+            &-image{
+                width: 9.6rem;
+
+                &-link{
+                    width: 9.6rem;
+                }
+
+                &-name{
+                    letter-spacing: .15rem;
+                }
+            }
+        }
+
+        &__link{
+            flex-direction: row;
+
+            &-icon{
+                width: 9.6rem;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1279px) {
@@ -1603,6 +1839,16 @@ body{
             left: 0;
         }
     }
+
+    .diary{
+
+        &__content{
+
+            &-images-block{
+                padding-left: 15vw;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1140px) {
@@ -1639,6 +1885,21 @@ body{
 
     .swiper {
         height: 68vh;
+    }
+    
+    .diary{
+
+        &__content{
+
+            &-images-block{
+                padding-left: 12vw;
+            }
+        }
+
+        
+        &__link{
+            flex-direction: column;
+        }
     }
 }
 
@@ -1839,6 +2100,42 @@ body{
             
             &--inner{
                 width: 68%;
+            }
+        }
+    }
+
+    .diary{
+
+        &__content{
+
+            &-container{
+                height: auto;
+                grid-template-rows: auto;
+                gap: 3rem 0;
+                padding: 8rem 0;
+            }
+
+            &-main{
+                grid-column-end: 20;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            &-images{
+
+                &-block{
+                    padding-left: 0;
+                }
+
+                &-bg-line{
+                    display: none;
+                }
+
+                &-container{
+                    flex-direction: column;
+                    gap: 2.4rem;
+                }
             }
         }
     }
