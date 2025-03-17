@@ -17,6 +17,7 @@ $color-white: #FFF;
 $color-white-low-opasity: #ffffffe6;
 
 $border-link: 2px solid $color-pale-silver;
+$border-thin-primary: 1px solid $color-pale-silver;
 
 @mixin link-name {
     border-bottom: $border-link;
@@ -1636,8 +1637,48 @@ body{
     }
 }
 
-.footer{
-    margin-top: 14.4rem;
+.awards{
+    width: calc(100% - 19.2rem);
+    margin: 19.2rem 9.6rem 9.6rem 9.6rem;
+    padding: 4rem 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    border-top: $border-thin-primary;
+    border-bottom: $border-thin-primary;
+
+    &__container{
+        
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &--items{
+            gap: 5rem;
+            box-sizing: border-box;
+            padding: 0 4rem;
+        }
+    }
+
+    &__item{
+        width: 16rem;
+        height: 7.5rem;
+        flex-shrink: 1;
+
+        &--virtuoso{
+
+            flex-shrink: .35;
+        }
+
+        & img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
 }
 
 .hidden{
@@ -2077,6 +2118,11 @@ body{
             }
         }
     }
+
+    .awards{
+        width: calc(100% - 4rem);
+        margin: 19.2rem 1rem 9.6rem 2rem;
+    }
 }
 
 @media only screen and (max-width: 1279px) {
@@ -2305,6 +2351,10 @@ body{
         &__form{
             flex-direction: column;
         }
+    }
+
+    .awards{
+        margin: 14.4rem 2rem 4rem 2rem;
     }
 }
 
