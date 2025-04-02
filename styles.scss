@@ -3,12 +3,13 @@ $font-family-secondary: "Old Standard TT", serif;
 $font-family-tertiary: "Cormorant Garamond", serif;
 
 $color-black: #000000;
+$color-bright-grey: #e5e7eb;
 $color-grey-transparent: #aaaaaa33;
 $color-granite-grey: #6e6259;
 $color-isabelline: #efedeb;
 $color-lapis-lazuli: #236192;
 $color-pale-silver: #cbc4bc;
-$color-pale-silver-med-opacity: #cbc4bc80;
+$color-pale-silver-med-opacity: #cbc4bc56;
 $color-pale-silver-transparent: #cbc4bc1a;
 $color-philippine-gray: #8f8b88;
 $color-prussian-blue-mid-opacity: #00314e80;
@@ -18,6 +19,8 @@ $color-white-low-opasity: #ffffffe6;
 
 $border-link: 2px solid $color-pale-silver;
 $border-thin-primary: 1px solid $color-pale-silver;
+$border-thin-blue: 1px solid $color-lapis-lazuli;
+$border-thin-white: 1px solid $color-white;
 
 @mixin link-name {
     border-bottom: $border-link;
@@ -1681,6 +1684,304 @@ body{
     }
 }
 
+.footer{
+    width: 100%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 2.25fr 3fr 6.5fr;
+    grid-template-rows: repeat(3, min-content);
+    color: $color-granite-grey;
+    font-size: 1.4rem;
+
+    &__section{
+        margin: 0 6.4rem;
+        padding-bottom: 6.4rem;
+        position: relative;
+
+        &--rooms{
+            grid-column: 3/4;
+            grid-row: 1/2;
+        }
+
+        &--suites{
+            grid-column: 3/4;
+            grid-row: 2/3;
+        }
+
+        &--dining{
+            grid-column: 3/4;
+            grid-row: 3/4;
+        }
+
+        &--contacts{
+            grid-column: 2/3;
+            grid-row: 1/3;
+        }
+
+        &--follow{
+            grid-column: 2/3;
+            grid-row: 3/4;
+
+        }
+
+        &--copy{
+            grid-column: 1/2;
+            grid-row: 1/4;
+            align-self: end;
+        }
+    }
+
+    &__header{
+        font-family: $font-family-secondary;
+        font-size: 2.4rem;
+        font-weight: 400;
+        letter-spacing: .48rem;
+        margin: 0;
+
+        &--follow, &--dining{
+            color: $color-lapis-lazuli;
+        }
+    }
+
+    &__list{
+        color: $color-pale-silver;
+        font-family: $font-family-secondary;
+        font-size: 2.4rem;
+        line-height: 1.33;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0 3.2rem;
+
+        
+        &-item{
+            position: relative;
+
+            &::before{
+                position: absolute;
+                content: "";
+                display: block;
+                border-bottom: $border-thin-primary;
+                width: 0;
+                left: 0;
+                bottom: 0;
+                transition: all .25s ease;
+            }
+
+            &:hover::before{
+                width: 100%;
+            }
+            
+            &:not(:last-child):after{
+                content: "/";
+                position: absolute;
+                top: 0;
+                right: -2.08rem;
+                color: $color-granite-grey;
+            }
+        }
+
+    }
+
+    &__rooms{
+        display: flex;
+        align-items: start;
+        gap: 5rem;
+        border-bottom: $border-thin-primary;
+        margin-right: 16rem;
+    }
+
+    &__suites{
+        display: flex;
+        align-items: start;
+        gap: 5rem;
+        border-bottom: $border-thin-primary;
+        padding-top: 5.6rem;
+        margin-right: 16rem;
+    }
+    
+    &__contacts{
+        border-bottom: $border-thin-primary;
+        margin-left: 11rem;
+
+        &::after{
+            content: "";
+            position: absolute;
+            border-right: $border-thin-primary;
+            right: -6.4rem;
+            top: 0;
+            height: 100%;
+        }
+        
+        & p{
+            letter-spacing: .038rem;
+            line-height: 1.43;
+            margin: 2rem 0;
+        }
+
+        & a{
+            text-decoration: none;
+            color: inherit;
+
+            &:visited{
+                color: inherit;
+            }
+        }
+    }
+
+    &__dining{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 14rem;
+        padding-top: 5.6rem;
+        padding-bottom: 0;
+        margin-bottom: 8rem;
+        margin-right: 16rem;
+
+        &-list{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        &-link{
+            display: flex;
+            gap: 1.6rem;
+            justify-content: start;
+            text-decoration: none;
+
+            &-image{
+                width: 4.8rem;
+                height: 4.8rem;
+                overflow: hidden;
+                border: $border-thin-primary;
+
+                & img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+
+            &-text{
+                color: $color-lapis-lazuli;
+                letter-spacing: .07rem;
+                align-self: end;
+                width: 16rem;
+                padding-bottom: .8rem;
+                line-height: 1.429;
+                position: relative;
+
+                &::after{
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 1px;
+                    background-color: $color-lapis-lazuli;
+                    transition: transform .3s ease;
+                }
+
+                
+            }
+
+            &:hover &-text::after{
+                transform: scaleY(3);
+            }
+        }
+    }
+
+    &__follow{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-top: 5.6rem;
+        padding-bottom: 0;
+        margin-bottom: 8rem;
+        margin-left: 11rem;
+
+        &::after{
+            content: "";
+            position: absolute;
+            border-right: $border-thin-primary;
+            right: -6.4rem;
+            top: 0;
+            height: 100%;
+        }
+        
+        &-links{
+            display: flex;
+            gap: 2.4rem;
+    
+            & a{
+                text-decoration: none;
+            }
+    
+            & svg{
+                width: 2rem;
+                height: 2rem;
+                fill: $color-lapis-lazuli;
+            }
+        }
+    }
+    
+    &__copy{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: 2fr 2.5fr;
+        margin: 0;
+        padding-bottom: 0;
+
+        &-image-container{
+            grid-column: 2/6;
+            grid-row: 1;
+            width: 100%;
+            overflow: hidden;
+            border-left: $border-thin-white;
+
+            & img{
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+
+        &-content{
+            grid-column: 1/5;
+            grid-row: 1/3;
+            background-color: $color-pale-silver-med-opacity;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            gap: 4rem;
+            padding: 0 2rem 2rem 22.5%;
+            margin-top: 1rem;
+            font-size: 1.2rem;
+            line-height: 1.33;
+        }
+
+        &-list{
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+
+        a{
+            color: inherit;
+            text-decoration: none;
+
+            &:visited{
+                color: inherit;
+            }
+        }
+    }
+}
+
 .hidden{
     display: none;
 }
@@ -2123,6 +2424,152 @@ body{
         width: calc(100% - 4rem);
         margin: 19.2rem 1rem 9.6rem 2rem;
     }
+
+    .footer{
+        grid-template-columns: 1fr 1.35fr;
+        grid-template-rows: repeat(4, auto);
+        padding: 0 1.6rem;
+
+        &__section{
+            margin: 0 6.4rem;
+            padding-bottom: 6.4rem;
+    
+            &--rooms{
+                grid-column: 1/2;
+                grid-row: 1/2;
+            }
+    
+            &--suites{
+                grid-column: 1/2;
+                grid-row: 2/3;
+            }
+    
+            &--dining{
+                grid-column: 2/3;
+                grid-row: 1/3;
+            }
+    
+            &--contacts{
+                grid-column: 1/2;
+                grid-row: 3/4;
+            }
+    
+            &--follow{
+                grid-column: 1/2;
+                grid-row: 4/5;
+    
+            }
+    
+            &--copy{
+                grid-column: 2/3;
+                grid-row: 3/5;
+                align-self: end;
+            }
+        }
+
+        &__list{
+            font-size: 2rem;
+            line-height: 1.6;
+        }
+
+        &__rooms{
+            margin-left: 0;
+            margin-bottom: 0;
+            padding-bottom: 2.4rem;
+            display: grid;
+            grid-template-columns: 1.25fr 3fr;
+            grid-template-rows: 1fr;
+            gap: 0;
+            
+            &::after{
+                content: "";
+                position: absolute;
+                border-right: $border-thin-primary;
+                right: -6.4rem;
+                top: 0;
+                height: 100%;
+            }
+        }
+
+        &__suites{
+            margin-left: 0;
+            padding-top: 4rem;
+            padding-bottom: 2.4rem;
+            display: grid;
+            grid-template-columns: 1.25fr 3fr;
+            grid-template-rows: 1fr;
+            gap: 0;
+            
+            &::after{
+                content: "";
+                position: absolute;
+                border-right: $border-thin-primary;
+                right: -6.4rem;
+                top: 0;
+                height: 100%;
+            }
+        }
+
+        &__contacts{
+            margin-left: 0;
+            padding-top: 4rem;
+            padding-bottom: 0;
+            border-bottom: none;
+
+            &::after{
+                display: none;
+            }
+        }
+
+        &__dining{
+            padding-top: 0;
+            padding-bottom: 2.4rem;
+            border-bottom: $border-thin-primary;
+
+            &-list{
+                flex-direction: column;
+                gap: 2.4rem;
+            }
+        }
+
+        &__follow{
+            margin-left: 0;
+            margin-bottom: 2.4rem;
+            padding: 0;
+            padding-top: 4rem;
+
+            &::after{
+                display: none;
+            }
+        }
+
+        &__copy{
+            grid-template-columns: 3fr 2fr .5fr;
+            grid-template-rows: 1fr 4fr 4fr;
+            margin-left: 0;
+            margin-top: 6.4rem;
+            padding-bottom: 0;
+
+            &-image-container{
+                grid-column: 2/4;
+                grid-row: 1/3;
+                width: 25.6rem;
+                height: 25.6rem;
+                justify-self: end;
+            }
+    
+            &-content{
+                grid-column: 1/3;
+                grid-row: 2/4;
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                gap: 2rem;
+                margin: 0;
+                padding: 0 0 2rem 6.4rem;
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1279px) {
@@ -2355,6 +2802,70 @@ body{
 
     .awards{
         margin: 14.4rem 2rem 4rem 2rem;
+    }
+
+    .footer{
+        display: flex;
+        flex-direction: column;
+
+        &__section{
+            margin: 0;
+        }
+
+        &__list{
+            display: block;
+
+            &-item{
+
+                &::after{
+                    display: none;
+                }
+            }
+        }
+
+        &__rooms{
+            display: flex;
+            flex-direction: column;
+
+            &::after{
+                display: none;
+            }
+        }
+
+        &__suites{
+            display: flex;
+            flex-direction: column;
+
+            &::after{
+                display: none;
+            }
+        }
+
+        &__dining{
+            gap: 4rem;
+            padding-top: 4rem;
+        }
+
+        &__contacts{
+            border-bottom: $border-thin-primary;
+            padding-bottom: 6rem;
+        }
+
+        &__follow{
+            gap: 3.2rem;
+            padding-bottom: 4rem;
+        }
+
+        &__copy{
+            width: 100%;
+            grid-template-columns: 3fr 2fr 6.4rem;
+            grid-template-rows: 6.4rem 4fr 3.2fr;
+            transform: translateX(-1.6rem);
+
+            &-content{
+                padding: 0 1.6rem 2rem 1.6rem;
+            }
+        }
     }
 }
 
