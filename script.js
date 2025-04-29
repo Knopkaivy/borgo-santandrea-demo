@@ -5,6 +5,14 @@ const variables = {
         languagesDropdown: '[data-languages-dropdown]',
         languagesAlternative: '[data-languages-alternative]',
         languagesChevron: '[data-languages-chevron]',
+        menu: '[data-menu]',
+        menuCloseBtn: '[data-menu-close]',
+        menuOpenBtn: '[data-menu-open]',
+        menuItem: '[data-menu-item]',
+        menuBgOverlay: '[data-bg-overlay]',
+        menuImage: '[data-menu-image]',
+        menuSublist: '[data-menu-sublist]',
+        navbar: '[data-navbar]',
         volume: '[data-volume]',
         volumeMute: '[data-volume-mute]',
         volumeMedium: '[data-volume-medium]',
@@ -18,9 +26,14 @@ const variables = {
         chevronUp: 'icon__chevron--up',
         chevronDown: 'icon__chevron--down',
         hidden: 'hidden',
+        menuActive: 'is-menu-active',
+        menuClosed: 'is-menu-closed',
+        menuImageShowImage: 'menu__bg-image--show-image',
     },
     idSelectors: {
         navBar: '#section-navbar',
+        menuImageId: '#menu-back-img-',
+        menuSublistId: '#menu-list-',
     }
 };
 const NAVBAR_HEIGHT = 108;
@@ -31,9 +44,15 @@ const navBar = document.querySelector(variables.idSelectors.navBar);
 const languagesDropdown = document.querySelector(variables.dataSelectors.languagesDropdown);
 const languagesAlternative = document.querySelector(variables.dataSelectors.languagesAlternative);
 const languagesChevron = document.querySelector(variables.dataSelectors.languagesChevron);
-const volume = document.querySelector(variables.dataSelectors.volume);
-const volumeMute = document.querySelector(variables.dataSelectors.volumeMute);
-const volumeMedium = document.querySelector(variables.dataSelectors.volumeMedium);
+const volumeButtons = document.querySelectorAll(variables.dataSelectors.volume);
+const menuOpenBtn = document.querySelector(variables.dataSelectors.menuOpenBtn);
+const menuCloseBtn = document.querySelector(variables.dataSelectors.menuCloseBtn);
+const menuItems = document.querySelectorAll(variables.dataSelectors.menuItem);
+const menuImages = document.querySelectorAll(variables.dataSelectors.menuImage);
+const menuSublists = document.querySelectorAll(variables.dataSelectors.menuSublist);
+const menuBgOverlay = document.querySelector(variables.dataSelectors.menuBgOverlay);
+const navbar = document.querySelector(variables.dataSelectors.navbar);
+
 
 
 let oldScroll = 0;
@@ -46,9 +65,11 @@ languagesDropdown.addEventListener('click', ()=>{
     languagesChevron.classList.toggle(variables.classes.chevronUp);
 });
 
-volume.addEventListener('click', () =>{
-    volumeMute.classList.toggle(variables.classes.hidden);
-    volumeMedium.classList.toggle(variables.classes.hidden);
+volumeButtons.forEach(volumeBtn =>{
+    volumeBtn.addEventListener('click', () =>{
+        volumeBtn.querySelector(variables.dataSelectors.volumeMute).classList.toggle(variables.classes.hidden);
+        volumeBtn.querySelector(variables.dataSelectors.volumeMedium).classList.toggle(variables.classes.hidden);
+    });
 })
 
 window.addEventListener(
@@ -83,6 +104,63 @@ const navbarOnScrollUpdate = (event) =>{
     }
     oldScroll = window.scrollY;
 }
+
+const toggleMenu = () =>{
+    document.body.classList.toggle(variables.classes.menuActive);
+    document.querySelector(variables.dataSelectors.menu).classList.toggle(variables.classes.menuActive);
+    navbar.classList.toggle(variables.classes.menuActive);
+    if(navbar.classList.contains(variables.classes.menuActive)){
+        navbar.classList.remove(variables.classes.menuClosed);
+    } else{
+        navbar.classList.add(variables.classes.menuClosed);
+    }
+}
+
+const showItemImage = (event) =>{
+    menuBgOverlay.style.opacity = .8;
+    const itemId = event.target.id.slice(-1);
+    document.querySelector(`${variables.idSelectors.menuImageId}${itemId}`).classList.add(variables.classes.menuImageShowImage);
+}
+
+const hideItemImage = (event) =>{
+    menuBgOverlay.style.opacity = 1;
+    menuImages.forEach(image =>{
+        image.classList.remove(variables.classes.menuImageShowImage);
+    });
+}
+
+const toggleItemSublist = (event) =>{
+    const itemId = event.target.id.slice(-1);
+    menuSublists.forEach(sublist =>{
+        const sublistId = sublist.id.slice(-1);
+        if(sublistId === itemId && (sublist.style.height === '0px' || sublist.style.height === '')){
+            sublist.style.height = `${sublist.childElementCount * 31}px`;
+        } else{
+            sublist.style.height = '0px';
+        }
+    })
+}
+
+menuOpenBtn.addEventListener('click', toggleMenu);
+
+menuItems.forEach(item =>{
+    item.addEventListener('mouseover', event => {
+        showItemImage(event);
+    });
+});
+
+menuItems.forEach(item =>{
+    item.addEventListener('mouseout', event => {
+        hideItemImage(event);
+    });
+});
+
+menuItems.forEach(item =>{
+    item.addEventListener('click', event => {
+        toggleItemSublist(event);
+    });
+});
+
 
 /*const createLinkObserver = () =>{
     const linkTranslateList = document.querySelectorAll();

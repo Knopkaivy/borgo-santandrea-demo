@@ -13,37 +13,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DEMO Only - Borgo Santandrea Luxury Hotel - 5-star hotel in Amalfi : Borgo Santandrea</title>
 </head>
-<body>
-    <svg style="position: absolute; width: 0; height: 0; overflow: hidden" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-        <defs>
-            <symbol id="icon-chevron-down" viewBox="0 0 24 24">
-                <path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-            </symbol>
-            <symbol id="icon-volume-mute" viewBox="0 -10 48 48">
-                <path d="M13 30c-0.26 0-0.516-0.102-0.707-0.293l-7.707-7.707h-3.586c-0.552 0-1-0.448-1-1v-10c0-0.552 0.448-1 1-1h3.586l7.707-7.707c0.286-0.286 0.716-0.372 1.090-0.217s0.617 0.519 0.617 0.924v26c0 0.404-0.244 0.769-0.617 0.924-0.124 0.051-0.254 0.076-0.383 0.076z"></path>
-            </symbol>
-            <symbol id="icon-volume-medium" viewBox="0 -10 48 48">
-                <path d="M22.485 25.985c-0.384 0-0.768-0.146-1.061-0.439-0.586-0.586-0.586-1.535 0-2.121 4.094-4.094 4.094-10.755 0-14.849-0.586-0.586-0.586-1.536 0-2.121s1.536-0.586 2.121 0c2.55 2.55 3.954 5.94 3.954 9.546s-1.404 6.996-3.954 9.546c-0.293 0.293-0.677 0.439-1.061 0.439v0zM17.157 23.157c-0.384 0-0.768-0.146-1.061-0.439-0.586-0.586-0.586-1.535 0-2.121 2.534-2.534 2.534-6.658 0-9.192-0.586-0.586-0.586-1.536 0-2.121s1.535-0.586 2.121 0c3.704 3.704 3.704 9.731 0 13.435-0.293 0.293-0.677 0.439-1.061 0.439z"></path>
-                <path d="M13 30c-0.26 0-0.516-0.102-0.707-0.293l-7.707-7.707h-3.586c-0.552 0-1-0.448-1-1v-10c0-0.552 0.448-1 1-1h3.586l7.707-7.707c0.286-0.286 0.716-0.372 1.090-0.217s0.617 0.519 0.617 0.924v26c0 0.404-0.244 0.769-0.617 0.924-0.124 0.051-0.254 0.076-0.383 0.076z"></path>
-            </symbol>
-        </defs>
-    </svg>
+<body class="" >
     <div class="volume__floater">                        
         <button class="button volume__button" data-volume >
-        <div class="navbar__volume--mute" data-volume-mute >
-            <svg class="icon icon-volume-mute"><use xlink:href="#icon-volume-mute"></use></svg>
+        <div class="navbar__volume--is-mute" data-volume-mute >
+            <svg class="icon icon-volume-mute" width="20" height="16" viewbox="0 0 17 13" fill="none" stroke="white">
+                <path d="M7.79199 1.54167L4.25033 4.37501H1.41699V8.62501H4.25033L7.79199 11.4583V1.54167Z" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
         </div>
-        <div class="navbar__volume--medium hidden" data-volume-medium >
-            <svg class="icon icon-volume-medium"><use xlink:href="#icon-volume-medium"></use></svg>
+        <div class="navbar__volume--is-medium hidden" data-volume-medium >
+            <svg class="icon icon-volume-medium" width="20" height="16" viewbox="0 0 17 13" fill="none" stroke="white">
+                <path d="M7.79199 1.54167L4.25033 4.37501H1.41699V8.62501H4.25033L7.79199 11.4583V1.54167Z" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M13.5082 1.49208C14.8361 2.8204 15.5821 4.62175 15.5821 6.5C15.5821 8.37824 14.8361 10.1796 13.5082 11.5079M11.0078 3.9925C11.6718 4.65666 12.0448 5.55733 12.0448 6.49646C12.0448 7.43558 11.6718 8.33625 11.0078 9.00041" stroke-linecap="round" stroke-linejoin="round" class="waves"></path>
+            </svg>
         </div>
     </button></div>
 
-    <section id="section-navbar" class="navbar navbar__section" >
+    <section id="section-navbar" class="navbar navbar__section" data-navbar >
         <header class="navbar__header ">
             <div class="navbar__container">
                 <div class="navbar__item navbar__navigation">
                     <div class="navbar__subitem">
-                        <button class="navbar__button navbar__button-menu" >
+                        <button class="navbar__button navbar__button-menu" data-menu-open >
                             <div class="navbar__button-menu-line navbar__button-menu-line--one"></div>
                             <div class="navbar__button-menu-line navbar__button-menu-line--two"></div>
                         </button>
@@ -54,8 +44,8 @@
                                 <div class="navbar__languages--long">Languages</div>
                                 <div class="navbar__languages--short">EN</div>
                                 <div class="navbar__languages-icon-container" >
-                                    <svg class="icon icon-chevron-down icon-chevron icon__chevron--down" data-languages-chevron>
-                                        <use xlink:href="#icon-chevron-down"></use>
+                                    <svg class="icon icon-chevron-down icon-chevron icon__chevron--down" viewBox="0 0 24 24" fill="white" data-languages-chevron>
+                                        <path d="M5.293 9.707l6 6c0.391 0.391 1.024 0.391 1.414 0l6-6c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
                                     </svg>
                                 </div>
                             </div>
@@ -64,11 +54,15 @@
                     </div>
                     <div class="navbar__subitem navbar__volume" >
                         <button class="navbar__button navbar__button-volume" data-volume >
-                            <div class="navbar__volume--mute" data-volume-mute >
-                                <svg class="icon icon-volume-mute"><use xlink:href="#icon-volume-mute"></use></svg>
+                            <div class="navbar__volume--is-mute" data-volume-mute >
+                                <svg class="icon icon-volume-mute" width="20" height="16" viewbox="0 0 17 13" fill="none" stroke="white">
+                                    <path d="M7.79199 1.54167L4.25033 4.37501H1.41699V8.62501H4.25033L7.79199 11.4583V1.54167Z" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
                             </div>
-                            <div class="navbar__volume--medium hidden" data-volume-medium >
-                                <svg class="icon icon-volume-medium"><use xlink:href="#icon-volume-medium"></use></svg>
+                            <div class="navbar__volume--is-medium hidden" data-volume-medium >
+                                <svg class="icon icon-volume-medium" width="20" height="16" viewbox="0 0 17 13" fill="none" stroke="white">
+                                    <path d="M7.79199 1.54167L4.25033 4.37501H1.41699V8.62501H4.25033L7.79199 11.4583V1.54167Z" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M13.5082 1.49208C14.8361 2.8204 15.5821 4.62175 15.5821 6.5C15.5821 8.37824 14.8361 10.1796 13.5082 11.5079M11.0078 3.9925C11.6718 4.65666 12.0448 5.55733 12.0448 6.49646C12.0448 7.43558 11.6718 8.33625 11.0078 9.00041" stroke-linecap="round" stroke-linejoin="round" class="waves"></path>
+                                </svg>
                             </div>
                         </button>
                     </div>
@@ -84,6 +78,81 @@
             </div>
             <hr/>
         </header>
+    </section>
+
+    <section id="section-menu" class="menu__section" data-menu>
+        <div class="menu__bg menu__bg-overlay" data-bg-overlay>
+        </div>
+        <div class="menu__bg menu__bg-image">
+            <img id="menu-back-img-0" src="./Images/menu_back_1.webp" class="menu__bg-image-item" aria-hidden="true" data-menu-image>
+            <img id="menu-back-img-1" src="./Images/menu_back_2.webp" class="menu__bg-image-item" aria-hidden="true" data-menu-image>
+            <img id="menu-back-img-2" src="./Images/menu_back_3.webp" class="menu__bg-image-item" aria-hidden="true" data-menu-image>
+            <img id="menu-back-img-3" src="./Images/menu_back_4.webp" class="menu__bg-image-item" aria-hidden="true" data-menu-image>
+            <img id="menu-back-img-4" src="./Images/menu_back_5.webp" class="menu__bg-image-item" aria-hidden="true" data-menu-image>
+        </div>
+        <div class="menu">
+            <div class="menu__primary">
+                <ul class="menu__list menu__list--primary">
+                    <li class="menu__list-item menu__list-item--primary">
+                        <p id="menu-item-0" data-menu-item >THE BORGO</p>
+                        <ul id="menu-list-0" class="menu__list menu__list--tertiary" data-menu-sublist>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">THE BORGO</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">LOCATION</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">GARDENS</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">PRIVATE BEACH AND POOL</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">WELLNESS RETREAT AND FITNESS</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__list-item menu__list-item--primary">
+                        <p id="menu-item-1" data-menu-item >ACCOMMODATION</p>
+                        <ul id="menu-list-1" class="menu__list menu__list--tertiary" data-menu-sublist>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">SUITES</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">ROOMS</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__list-item menu__list-item--primary">
+                        <p id="menu-item-2" data-menu-item >WINING & DINING</p>
+                        <ul id="menu-list-2" class="menu__list menu__list--tertiary" data-menu-sublist>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">THE BREAKFAST</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">BEACH CLUB PIZZERIA & GRILL</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">PLUMAGO BAR</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">ALICI</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">MARINELLA RESTAURANT</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">WINE CELLAR</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__list-item menu__list-item--primary">
+                        <p id="menu-item-3" data-menu-item >BEACH CLUB</p>
+                        <ul id="menu-list-3" class="menu__list menu__list--tertiary" data-menu-sublist>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">MARINELLA PRIVATE BEACH</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">BEACH CLUB PIZZERIA & GRILL</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">THE PIZZA</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">DOCKING AT THE BORGO</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu__list-item menu__list-item--primary">
+                        <p id="menu-item-4" data-menu-item >BSA COLLECTION</p>
+                        <ul id="menu-list-4" class="menu__list menu__list--tertiary" data-menu-sublist>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">TILES</a></li>
+                            <li class="menu__list-item menu__list-item--tertiary"><a href="/">VINTAGE</a></li>
+                        </ul>
+                    </li>
+            </div>
+            <div class="menu__secondary">
+                <ul class="menu__list menu__list--secondary menu__list--social">
+                    <li class="menu__list-item menu__list-item--secondary"><a href="/">PHOTOGALLERY</a></li>
+                    <li class="menu__list-item menu__list-item--secondary"><a href="/">PRESS</a></li>
+                    <li class="menu__list-item menu__list-item--secondary"><a href="/">AWARDS</a></li>
+                    <li class="menu__list-item menu__list-item--secondary"><a href="/">CONTACTS</a></li>
+                </ul>
+                <ul class="menu__list menu__list--secondary menu__list--privacy">
+                    <li class="menu__list-item menu__list-item--secondary menu__list-item--privacy"><a href="/">FAQ</a></li>
+                    <li class="menu__list-item menu__list-item--secondary menu__list-item--privacy"><a href="/">PRIVACY POLICY</a></li>
+                    <li class="menu__list-item menu__list-item--secondary menu__list-item--privacy"><a href="/">COOKIES</a></li>
+                    <li class="menu__list-item menu__list-item--secondary menu__list-item--privacy"><a href="/">CREDITS</a></li>
+                </ul>
+            </div>
+        </div>
     </section>
 
     <section id="section-hero" class="hero hero__section" >
