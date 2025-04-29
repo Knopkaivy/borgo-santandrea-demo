@@ -34,6 +34,7 @@ const variables = {
         navBar: '#section-navbar',
         menuImageId: '#menu-back-img-',
         menuSublistId: '#menu-list-',
+        audio: '#audio'
     }
 };
 const NAVBAR_HEIGHT = 108;
@@ -52,7 +53,7 @@ const menuImages = document.querySelectorAll(variables.dataSelectors.menuImage);
 const menuSublists = document.querySelectorAll(variables.dataSelectors.menuSublist);
 const menuBgOverlay = document.querySelector(variables.dataSelectors.menuBgOverlay);
 const navbar = document.querySelector(variables.dataSelectors.navbar);
-
+const audio = document.querySelector(variables.idSelectors.audio);
 
 
 let oldScroll = 0;
@@ -69,6 +70,11 @@ volumeButtons.forEach(volumeBtn =>{
     volumeBtn.addEventListener('click', () =>{
         volumeBtn.querySelector(variables.dataSelectors.volumeMute).classList.toggle(variables.classes.hidden);
         volumeBtn.querySelector(variables.dataSelectors.volumeMedium).classList.toggle(variables.classes.hidden);
+        if(audio.paused){
+            audio.play();
+        } else {
+            audio.pause();
+        }
     });
 })
 
