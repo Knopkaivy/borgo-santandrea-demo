@@ -16,17 +16,18 @@
 <body class="" >
     <div class="volume__floater">                        
         <button class="button volume__button" data-volume >
-        <div class="navbar__volume--is-mute" data-volume-mute >
-            <svg class="icon icon-volume-mute" width="20" height="16" viewbox="0 0 17 13" fill="none" stroke="white">
-                <path d="M7.79199 1.54167L4.25033 4.37501H1.41699V8.62501H4.25033L7.79199 11.4583V1.54167Z" stroke-linecap="round" stroke-linejoin="round"></path>
-            </svg>
-        </div>
-        <div class="navbar__volume--is-medium hidden" data-volume-medium >
-            <svg class="icon icon-volume-medium" width="20" height="16" viewbox="0 0 17 13" fill="none" stroke="white">
-                <path d="M7.79199 1.54167L4.25033 4.37501H1.41699V8.62501H4.25033L7.79199 11.4583V1.54167Z" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M13.5082 1.49208C14.8361 2.8204 15.5821 4.62175 15.5821 6.5C15.5821 8.37824 14.8361 10.1796 13.5082 11.5079M11.0078 3.9925C11.6718 4.65666 12.0448 5.55733 12.0448 6.49646C12.0448 7.43558 11.6718 8.33625 11.0078 9.00041" stroke-linecap="round" stroke-linejoin="round" class="waves"></path>
-            </svg>
-        </div>
-    </button></div>
+            <div class="navbar__volume--is-mute" data-volume-mute >
+                <svg class="icon icon-volume-mute" width="20" height="16" viewbox="0 0 17 13" fill="none" stroke="white">
+                    <path d="M7.79199 1.54167L4.25033 4.37501H1.41699V8.62501H4.25033L7.79199 11.4583V1.54167Z" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <div class="navbar__volume--is-medium hidden" data-volume-medium >
+                <svg class="icon icon-volume-medium" width="20" height="16" viewbox="0 0 17 13" fill="none" stroke="white">
+                    <path d="M7.79199 1.54167L4.25033 4.37501H1.41699V8.62501H4.25033L7.79199 11.4583V1.54167Z" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M13.5082 1.49208C14.8361 2.8204 15.5821 4.62175 15.5821 6.5C15.5821 8.37824 14.8361 10.1796 13.5082 11.5079M11.0078 3.9925C11.6718 4.65666 12.0448 5.55733 12.0448 6.49646C12.0448 7.43558 11.6718 8.33625 11.0078 9.00041" stroke-linecap="round" stroke-linejoin="round" class="waves"></path>
+                </svg>
+            </div>
+        </button>
+    </div>
 
     <section id="section-navbar" class="navbar navbar__section" data-navbar >
         <header class="navbar__header ">
@@ -277,8 +278,10 @@
                         <div class="suites__content-link-icon content-link__icon">
                             <img src="./Icons/tile_tortora.png" aria-hidden="true">
                         </div>
-                        <div class="suites__content-link-name content-link__name">SUITES</div>
-                        <div class="suites__content-link-name suites__content-link-name--secondary content-link__name--secondary">ROOMS</div>
+                        <div class="suites__content-link-name">
+                            <div class="content-link__name">SUITES</div>
+                            <div class="content-link__name content-link__name--secondary">ROOMS</div>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -331,7 +334,7 @@
                             <div class="restaurant__link-icon">
                                 <img src="./Icons/tile_tortora.png" aria-hidden="true">
                             </div>
-                            <div class="restaurant__link-name content-link__name">MARINELLA RESTAURANT</div>
+                            <div class="restaurant__link-name content-link__name content-link__name--white">MARINELLA RESTAURANT</div>
                         </a>
                     </div>
                 </div>
@@ -442,7 +445,7 @@
                             <div class="diary__link-icon">
                                 <img src="./Icons/tile_tortora.png" aria-hidden="true">
                             </div>
-                            <div class="diary__link-name content-link__name">COMING SOON</div>
+                            <div class="diary__link-name content-link__name content-link__name--secondary">COMING SOON</div>
                         </a>
                     </div>
                 </div>
@@ -528,7 +531,7 @@
                             <div class="subscribe__submit-icon">
                                 <img src="./Icons/tile_tortora.png" aria-hidden="true">
                             </div>
-                            <button type="submit" class="subscribe__submit-button content-link__name">SUBSCRIBE</button>
+                            <button type="submit" class="subscribe__submit-button content-link__name content-link__name--secondary">SUBSCRIBE</button>
                         </div>
                     </div>
                 </form>

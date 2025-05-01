@@ -21,19 +21,33 @@ $color-snow: #faf9f8;
 $color-white: #FFF;
 $color-white-low-opasity: #ffffffe6;
 
-$border-link: 2px solid $color-pale-silver;
 $border-thin-primary: 1px solid $color-pale-silver;
 $border-thin-blue: 1px solid $color-lapis-lazuli;
 $border-thin-white: 1px solid $color-white;
 
 @mixin link-name {
-    border-bottom: $border-link;
     color: inherit;
     font-family: $font-family-secondary;
     font-size: 1.4rem;
     letter-spacing: .3rem;
     text-wrap: nowrap;
-    padding: 0 .2rem .2rem .4rem;
+    padding: .4rem .2rem .4rem .4rem;
+    position: relative;
+
+    &::after{
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: calc((100% - 10rem)/2);
+        width: 10rem;
+        height: .2rem;
+        background-color: $color-pale-silver;
+        transition: all .2s .05s ease;
+    }
+
+    &:hover::after{
+        transform: scaleY(2);
+    }
   }
 
 :root{
@@ -120,6 +134,19 @@ body{
     
     &__name{
         @include link-name;
+        
+        &--secondary{
+            &::after{
+                content: none;
+            }
+        }
+
+        &--white{
+            &::after{
+                background-color: $color-white;
+                left: 0;
+            }
+        }
     }
 }
 
@@ -1086,13 +1113,9 @@ body{
                     object-fit: contain;
                 }
             }
-            
-            &-name{
-                @include link-name;
 
-                &--secondary{
-                    border: none;
-                }
+            &-name:hover .content-link__name::after{
+                transform: scaleY(2);
             }
         }
     }
@@ -1276,7 +1299,7 @@ body{
             text-align: center;
             text-wrap: wrap;
             width: fit-content;
-            max-width: 10rem;
+            max-width: 15rem;
         }
     }
 }
@@ -1897,12 +1920,11 @@ body{
 
         &-button{
             background-color: transparent;
-            border-top: none;
-            border-left: none;
-            border-right: none;
+            border: none;
             color: $color-white;
             font-size: 2rem;
             letter-spacing: normal;
+            text-decoration: underline;
         }
 
         &-icon{
