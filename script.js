@@ -94,19 +94,23 @@ window.addEventListener(
     false,
   );
 
-const navbarOnScrollUpdate = (event) =>{
+const setNavbarStyles = () =>{
     if(window.scrollY <= NAVBAR_HEIGHT) {
         navBar.classList.remove(variables.classes.navBarLightBG);
-    } else if(window.scrollY > NAVBAR_HEIGHT && window.scrollY <= NAVBAR_STICKY_HEIGHT){
+    } else if(window.scrollY > NAVBAR_HEIGHT){
         navBar.classList.add(variables.classes.navBarLightBG);
+    }
+}
+
+const navbarOnScrollUpdate = (event) =>{
+    setNavbarStyles();
+
+    if(oldScroll > window.scrollY){
+        navBar.classList.remove(variables.classes.navBarHide);
+        navBar.classList.add(variables.classes.navBarShow);
     } else{
-        if(oldScroll > window.scrollY){
-            navBar.classList.remove(variables.classes.navBarHide);
-            navBar.classList.add(variables.classes.navBarShow);
-        } else{
-            navBar.classList.remove(variables.classes.navBarShow);
-            navBar.classList.add(variables.classes.navBarHide);
-        }
+        navBar.classList.remove(variables.classes.navBarShow);
+        navBar.classList.add(variables.classes.navBarHide);
     }
     oldScroll = window.scrollY;
 }
