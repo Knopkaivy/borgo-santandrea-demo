@@ -48,7 +48,17 @@ $border-thin-white: 1px solid $color-white;
     &:hover::after{
         transform: scaleY(2);
     }
-  }
+}
+
+@mixin image-contain {
+    width: 100%;
+    object-fit: contain;
+}
+
+@mixin image-cover {
+    width: 100%;
+    object-fit: cover;
+}
 
 :root{
     margin: 0;
@@ -422,8 +432,12 @@ body{
         }
     }
 
-    .icon {
+    .icon-chevron{
         fill: $color-lapis-lazuli;
+    }
+
+    .icon-volume-mute, .icon-volume-medium {
+        stroke: $color-lapis-lazuli;
       }
 }
 
@@ -773,6 +787,7 @@ body{
         &--two{
             font-size: 10.5vw;
             letter-spacing: -.2rem;
+            line-height: 1;
             padding-top: 2.1vw;
         }
     }
@@ -784,10 +799,15 @@ body{
     grid-template-columns: repeat(19, 1fr);
     overflow-x: hidden;
 
-    &__image-main-container{
-        grid-column-start: 6;
-        grid-column-end: 20;
-        grid-row-start: 1;
+    &__image-main{
+
+        &-container{
+            grid-column-start: 6;
+            grid-column-end: 20;
+            grid-row-start: 1;
+            overflow: hidden;
+            z-index: -1;
+        }
     }
 
     &__content{
@@ -803,6 +823,7 @@ body{
             grid-template-columns: repeat(8, 1fr);
             grid-auto-rows: min-content;
             padding: 22.4rem 0;
+            z-index: 1;
         }
 
         &-header{
@@ -864,9 +885,9 @@ body{
         &-image-container{
             width: 100%;
             height: auto;
+
             img{
-                width: 100%;
-                object-fit: contain;
+                @include image-contain;
             }
         }
 
@@ -960,9 +981,8 @@ body{
             height: 100%;
 
             & img{
-                width: 100%;
+                @include image-cover;
                 height: 100%;
-                object-fit: cover;
             }
         }
 
@@ -1037,9 +1057,8 @@ body{
                 overflow: hidden;
 
                 & img{
-                    width: 100%;
+                    @include image-cover;
                     height: 100%;
-                    object-fit: cover;
                     object-position: center;
                 }
             }
@@ -1088,9 +1107,9 @@ body{
 
         &-image-container{
             height: auto;
+
             img{
-                width: 100%;
-                object-fit: contain;
+                @include image-contain;
             }
         }
 
@@ -1108,9 +1127,8 @@ body{
                 transform: translateY(-40%);
 
                 & img{
-                    width: 100%;
+                    @include image-contain;
                     height: 100%;
-                    object-fit: contain;
                 }
             }
 
@@ -1152,9 +1170,8 @@ body{
             width: 100%;
 
             & img{
-                width: 100%;
+                @include image-cover;
                 height: 100%;
-                object-fit: cover;
                 object-position: center;
             }
         }
@@ -1242,9 +1259,8 @@ body{
         overflow: hidden;
 
         & img{
-            width: 100%;
+            @include image-cover;
             height: 100%;
-            object-fit: cover;
             object-position: center;
         }
     }
@@ -1383,9 +1399,8 @@ body{
             overflow: hidden;
 
             & img{
-                width: 100%;
+                @include image-cover;
                 height: 100%;
-                object-fit: cover;
                 object-position: center;
 
             }
@@ -1500,9 +1515,8 @@ body{
         overflow: hidden;
 
         & img{
-            width: 100%;
+            @include image-cover;
             height: 100%;
-            object-fit: cover;
             object-position: center;
         }
     }
@@ -1592,9 +1606,8 @@ body{
             width: 12.8rem;
 
             & img{
-                width: 100%;
+                @include image-cover;
                 height: 100%;
-                object-fit: cover;
                 object-position: center;
             }
 
@@ -1623,9 +1636,8 @@ body{
         cursor: default;
 
         &-icon img{
-            width: 100%;
+            @include image-cover;
             height: 100%;
-            object-fit: cover;
             object-position: center;
         }
         
@@ -1673,9 +1685,8 @@ body{
                 overflow: hidden;
 
                 & img{
-                    width: 100%;
+                    @include image-cover;
                     height: 100%;
-                    object-fit: cover;
                     object-position: center;
                 }
             }
@@ -1693,9 +1704,8 @@ body{
             width: 11.236rem;
 
             & img{
-                width: 100%;
+                @include image-cover;
                 height: 100%;
-                object-fit: cover;
                 object-position: center;
             }
         }
@@ -1771,9 +1781,8 @@ body{
         overflow: hidden;
 
         & img{
-            width: 100%;
+            @include image-cover;
             height: 100%;
-            object-fit: cover;
             object-position: center;
         }
     }
@@ -1929,9 +1938,8 @@ body{
 
         &-icon{
             & img{
-                width: 100%;
+                @include image-cover;
                 height: 100%;
-                object-fit: cover;
             }
         }
     }
@@ -1973,9 +1981,8 @@ body{
         }
 
         & img{
-            width: 100%;
+            @include image-contain;
             height: 100%;
-            object-fit: contain;
             object-position: center;
         }
     }
@@ -2156,9 +2163,8 @@ body{
                 border: $border-thin-primary;
 
                 & img{
-                    width: 100%;
+                    @include image-cover;
                     height: 100%;
-                    object-fit: cover;
                     object-position: center;
                 }
             }
@@ -2241,9 +2247,8 @@ body{
             border-left: $border-thin-white;
 
             & img{
-                width: 100%;
+                @include image-cover;
                 height: 100%;
-                object-fit: cover;
                 object-position: center;
             }
         }
@@ -2281,6 +2286,10 @@ body{
 
 .hidden{
     display: none;
+}
+
+.scroll-image-scale{
+    transform: scale(1.2);
 }
 
 
@@ -2354,9 +2363,8 @@ body{
                 overflow: hidden;
 
                 & img{
+                    @include image-cover;
                     object-position: 50% 50%;
-                    object-fit: cover;
-                    width: 100%;
                 }
             }
         }
@@ -2421,9 +2429,8 @@ body{
             }
             
             & img{
-                width: 100%;
+                @include image-cover;
                 height: 100%;
-                object-fit: cover;
             }
         }
 
@@ -3756,8 +3763,7 @@ body{
                     align-self: end;
     
                     & img{
-                        width: 100%;
-                        object-fit: contain;
+                        @include image-contain();
                         object-position: bottom;
                     }
                 }
@@ -3874,9 +3880,8 @@ body{
                 overflow: hidden;
 
                 & img{
+                    @include image-cover;
                     object-position: 50% 50%;
-                    object-fit: cover;
-                    width: 100%;
                 }
             }
         }
