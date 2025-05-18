@@ -2180,6 +2180,9 @@ body.is-menu-active {
     letter-spacing: 0.045rem;
     width: 70%;
   }
+  .restaurant__link {
+    align-items: start;
+  }
   .restaurant__link-icon img {
     width: 9.6rem;
   }
