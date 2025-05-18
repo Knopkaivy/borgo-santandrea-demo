@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function(arg) {
             navBar: '#section-navbar',
             menuImageId: '#menu-back-img-',
             menuSublistId: '#menu-list-',
-            audio: '#audio'
+            audio: '#audio',
+            video: '#page_top_video'
         }
     };
     const NAVBAR_HEIGHT = 108;
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function(arg) {
     const menuBgOverlay = document.querySelector(variables.dataSelectors.menuBgOverlay);
     const navbar = document.querySelector(variables.dataSelectors.navbar);
     const audio = document.querySelector(variables.idSelectors.audio);
+    const video = document.querySelector(variables.idSelectors.video);
 
 
     let oldScroll = 0;
@@ -260,6 +262,16 @@ document.addEventListener("DOMContentLoaded", function(arg) {
 /* ScrollTrigger */
 
 /* HERO */
+
+    ScrollTrigger.create({
+        trigger: video,
+        start: "top center",
+        end: "bottom top",
+        onEnter: () => video.play(),
+        onLeave: () => video.pause(),
+        onEnterBack: () => video.play(),
+        onLeaveBack: () => video.pause()
+    });
 
     gsap.from(".hero__header--one", {
         scrollTrigger: {
