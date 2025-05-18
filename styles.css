@@ -2801,12 +2801,19 @@ body.is-menu-active {
   .restaurant__header {
     padding: 0 6.4rem;
   }
-  .restaurant__main-container {
-    justify-content: start;
-    padding-left: 16rem;
+  .restaurant__main {
+    width: 65%;
   }
   .restaurant__main-content {
-    width: 75%;
+    width: 40%;
+  }
+  .restaurant__link {
+    align-items: start;
+  }
+  .restaurant__link-container {
+    width: 65%;
+    display: flex;
+    align-items: start;
   }
   .beach__bg--inner {
     width: 68%;
@@ -2962,17 +2969,24 @@ body.is-menu-active {
     font-size: 2rem;
     padding: 0 1.6rem;
   }
+  .restaurant__content {
+    align-items: start;
+    justify-content: start;
+    padding-top: 4rem;
+    padding-left: 4rem;
+    gap: 20vh;
+  }
   .restaurant__main {
     width: 100%;
     justify-content: space-evenly;
   }
-  .restaurant__main-container {
-    padding-left: 4rem;
-  }
   .restaurant__main-content {
     font-size: 1.6rem;
     letter-spacing: normal;
-    width: 57%;
+    width: 60%;
+  }
+  .restaurant__link {
+    max-width: 20vw;
   }
   .beach__link-container {
     grid-column-start: 6;
@@ -2996,11 +3010,9 @@ body.is-menu-active {
   }
   .hero__header--two {
     letter-spacing: -0.3rem;
-    padding-bottom: 31.5vw;
   }
   .hero__header--one, .hero__header--three {
     letter-spacing: -0.4rem;
-    padding-top: 5.5vw;
   }
   .haven__image-main-container {
     height: 250vw;
@@ -3044,10 +3056,10 @@ body.is-menu-active {
   .gardens__content-text {
     font-size: 1.8rem;
   }
-  .jr-suite__main-header--one {
+  .jr-suite__main-header--two {
     font-size: 8.5rem;
   }
-  .jr-suite__main-header--two {
+  .jr-suite__main-header--one, .jr-suite__main-header--three {
     font-size: 5rem;
   }
 }
@@ -3096,6 +3108,9 @@ body.is-menu-active {
   }
   .jr-suite__main-header--one, .jr-suite__main-header--three {
     font-size: 3.4rem;
+  }
+  .beach__description-header {
+    text-align: center;
   }
   .subscribe {
     height: 80vh;

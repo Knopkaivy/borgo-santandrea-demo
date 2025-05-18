@@ -3565,16 +3565,23 @@ body{
         }
 
         &__main{
-
-            &-container{
-                justify-content: start;
-                padding-left: 16rem;
-            }
+            width: 65%;
 
             &-content{
-                width: 75%;
+                width: 40%;
             }
         }
+
+        &__link{
+            align-items: start;
+
+            &-container{
+                width: 65%;
+                display: flex;
+                align-items: start;
+            }
+        }
+        
     }
 
     .beach{
@@ -3851,19 +3858,27 @@ body{
             padding: 0 1.6rem;
         }
 
+        &__content{
+            align-items: start;
+            justify-content: start;
+            padding-top: 4rem;
+            padding-left: 4rem;
+            gap: 20vh;
+        }
+
         &__main{
             width: 100%;
             justify-content: space-evenly;
 
-            &-container{
-                padding-left: 4rem;
-            }
-
             &-content{
                 font-size: 1.6rem;
                 letter-spacing: normal;
-                width: 57%;
+                width: 60%;
             }
+        }
+
+        &__link{
+            max-width: 20vw;
         }
     }
 
@@ -3905,12 +3920,10 @@ body{
                 
             &--two{
                 letter-spacing: -.3rem;
-                padding-bottom: 31.5vw;
             }
             
             &--one, &--three{
                 letter-spacing: -.4rem;
-                padding-top: 5.5vw;
             }
         }
     }
@@ -3986,11 +3999,11 @@ body{
 
             &-header{
 
-                &--one{
+                &--two{
                     font-size: 8.5rem;
                 }
 
-                &--two{
+                &--one, &--three{
                     font-size: 5rem;
                 }
             }
@@ -4083,6 +4096,13 @@ body{
             }
         }
     }  
+
+    .beach{
+
+        &__description-header{
+            text-align: center;
+        }
+    }
 
     .subscribe{
         height: 80vh;

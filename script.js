@@ -609,7 +609,6 @@ document.addEventListener("DOMContentLoaded", function(arg) {
     duration: .5,
     yPercent: 20,
     opacity: 0,
-    delay: .5
     });
 
     gsap.from(".jr-suite__main-header--one", {
