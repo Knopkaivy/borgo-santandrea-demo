@@ -173,7 +173,7 @@
     <section id="section-haven">
         <div class="haven">
             <div class="haven__image-main-container">
-                <img src="./Images/borgosantandrea_home_02.webp" alt="sea view from the hotel">
+                <img class="haven__image-main" src="./Images/borgosantandrea_home_02.webp" alt="sea view from the hotel">
             </div>
             <div class="haven__content-container">
                 <div class="haven__content-header" role="heading" aria-level="2" >
@@ -264,7 +264,7 @@
             </div>
             <div class="suites__main">
                 <div class="suites__image-container--main">
-                    <img src="./Images/borgosantandrea_home_07.webp" alt="suite with view on water">
+                    <img class="suites__image--main" src="./Images/borgosantandrea_home_07.webp" alt="suite with view on water">
                 </div>
                 <div class="suites__content-container">
                     <div class="suites__content-description">
@@ -299,7 +299,7 @@
             <div class="jr-suite__main">
                 <div class="jr-suite__main-content">
                     <div class="jr-suite__image-container--main">
-                        <img src="./Images/borgosantandrea_home_08.webp" alt="artisan interior">
+                        <img class="jr-suite__image--main" src="./Images/borgosantandrea_home_08.webp" alt="artisan interior">
                     </div>
                     <a href="" class="jr-suite__main-content-link content-link content-link--vertical" >
                         <div class="jr-suite__main-content-link-icon content-link__icon">
@@ -309,34 +309,37 @@
                     </a>
                 </div>
                 <H2 class="jr-suite__main-header-container">
-                    <span class="jr-suite__main-header--two">CELEBRATING</span>
-                    <span class="jr-suite__main-header--one">ITALIAN</span>
-                    <span class="jr-suite__main-header--two">ARTISANSHIP</span>
+                    <span class="jr-suite__main-header--one">CELEBRATING</span>
+                    <span class="jr-suite__main-header--two">ITALIAN</span>
+                    <span class="jr-suite__main-header--three">ARTISANSHIP</span>
                 </H2>
             </div>
         </div>
     </section>
 
-    <section id="restaurant">
-        <div class="restaurant restaurant--is-scrollable">
+    <section id="section-restaurant">
+        <div class="restaurant">
             <div class="restaurant__image-container">
-                <div class="restaurant__overlay"></div>
-                <img src="./Images/borgosantandrea_marinella_top.webp" alt="restaurant patio with cliff view">
+                <img class="restaurant__image" src="./Images/borgosantandrea_marinella_top.webp" alt="restaurant patio with cliff view">
             </div>
-            <div class="restaurant__header-container">
-                <h2 class="restaurant__header">A JOURNEY THROUGH THE FLAVOURS OF THE REGION</h2>
+            <div class="restaurant__overlay"></div>
+            <div class="restaurant__overlay-image-container">
+                <img class="restaurant__overlay-image" src="./Images/bsa_home_ristorante_maschera.png" alt="restaurant patio with cliff view">
             </div>
-            <div class="restaurant__main-container">
+            <div class="restaurant__content">
+                <div class="restaurant__header-container">
+                    <h2 class="restaurant__header">A JOURNEY THROUGH THE FLAVOURS OF THE REGION</h2>
+                </div>
                 <div class="restaurant__main">
                     <p class="restaurant__main-content">Dining at Borgo Santandrea is inspired by the fresh, abundant PRODUCE OF THE AMALFI REGION, preserving the exquisite local flavours and culinary traditions. Sourcing only the FINEST LOCAL INGREDIENTS, Chef Crescenzo Scotti personally designs each dish individually.</p>
-                    <div class="restaurant__link-container">
-                        <a href="" class="restaurant__link content-link" >
-                            <div class="restaurant__link-icon">
-                                <img src="./Icons/tile_tortora.png" aria-hidden="true">
-                            </div>
-                            <div class="restaurant__link-name content-link__name content-link__name--white">MARINELLA RESTAURANT</div>
-                        </a>
-                    </div>
+                </div>
+                <div class="restaurant__link-container">
+                    <a href="" class="restaurant__link content-link" >
+                        <div class="restaurant__link-icon">
+                            <img src="./Icons/tile_tortora.png" aria-hidden="true">
+                        </div>
+                        <div class="restaurant__link-name content-link__name content-link__name--white">MARINELLA RESTAURANT</div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -420,19 +423,19 @@
                     <div class="diary__content-images-block">
                         <div class="diary__content-images-bg-line"></div>
                         <div class="diary__content-images-container">
-                            <a href="" class="diary__content-image-link">
+                            <a href="#section-story" class="diary__content-image-link diary__content-image-link--one">
                                 <div class="diary__content-image">
                                     <img src="./Images/bsa_categoria_destination.webp" alt="landscape">
                                 </div>
                                 <p class="diary__content-image-name">destination</p>
                             </a>
-                            <a href="" class="diary__content-image-link">
+                            <a href="#section-haven" class="diary__content-image-link diary__content-image-link--two">
                                 <div class="diary__content-image">
                                     <img src="./Images/bsa_categoria_lifestyle.webp" alt="person relaxing in pool">
                                 </div>
                                 <p class="diary__content-image-name">lifestyle</p>
                             </a>
-                            <a href="" class="diary__content-image-link">
+                            <a href="#section-restaurant" class="diary__content-image-link diary__content-image-link--three">
                                 <div class="diary__content-image">
                                     <img src="./Images/bsa_categoria_taste.webp" alt="restaurant meal">
                                 </div>
@@ -464,7 +467,7 @@
             </div>
             <div class="social__main">
                 <div class="social__image-container--main">
-                    <img src="./Images/borgosantandrea_home_10.webp" alt="interior walkway">
+                    <img class="social__image--main" src="./Images/borgosantandrea_home_10.webp" alt="interior walkway">
                 </div>
                 <div class="social__main-container">
                     <div class="social__image-container--secondary">
@@ -670,6 +673,8 @@
     
     <audio id="audio" playsinline="" loop="" preload="none" src="https://borgosantandrea.it/wp-content/themes/borgosantandrea/build/audio/audio.mp3"></audio>
     
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 

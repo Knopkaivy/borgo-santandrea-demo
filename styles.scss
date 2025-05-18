@@ -800,6 +800,7 @@ body{
     overflow-x: hidden;
 
     &__image-main{
+        transform: scale(1.5);
 
         &-container{
             grid-column-start: 6;
@@ -945,6 +946,16 @@ body{
             grid-column-end: 15;
             grid-row: 1;
         }
+
+        &--secondary{
+            width: 20.8rem;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+
+            img{
+                @include image-contain;
+            }
+        }
     }
 
     &__link{
@@ -1050,11 +1061,13 @@ body{
     &__image{
 
         &-container{
+            
             &--main{
                 grid-column-start: 1;
                 grid-column-end: 15;
                 grid-row: 1;
                 overflow: hidden;
+                z-index: -1;
 
                 & img{
                     @include image-cover;
@@ -1062,6 +1075,10 @@ body{
                     object-position: center;
                 }
             }
+        }
+
+        &--main{
+            transform: scale(1.5);
         }
     }
 
@@ -1078,7 +1095,9 @@ body{
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            align-self: center;
+            align-self: end;
+            z-index: 1;
+
         }
 
         &-description{
@@ -1164,21 +1183,30 @@ body{
         }
     }
 
-    &__image-container{
+    &__image{
 
         &--main{
-            width: 100%;
-
-            & img{
-                @include image-cover;
-                height: 100%;
-                object-position: center;
-            }
+            transform: scale(1.3);
         }
 
-        &--secondary{
-            display: flex;
-            align-items: center;
+        &-container{
+    
+            &--main{
+                width: 100%;
+                overflow: hidden;
+                aspect-ratio: .8 / 1;
+    
+                & img{
+                    @include image-cover;
+                    height: 100%;
+                    object-position: center;
+                }
+            }
+    
+            &--secondary{
+                display: flex;
+                align-items: center;
+            }
         }
     }
 
@@ -1211,11 +1239,11 @@ body{
                 margin-bottom: 9.6rem;
             }
 
-            &--one{
+            &--two{
                 font-size: 9.6rem;
                 letter-spacing: -.1rem;
             }
-            &--two{
+            &--one, &--three{
                 font-size: 5.5rem;
             }
         }
@@ -1228,31 +1256,32 @@ body{
     position: relative;
     color: $color-white;
     overflow-y: hidden;
-    
-    &--is-scrollable{
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        -ms-overflow-style: none;  /* Internet Explorer 10+ */
-        scrollbar-width: none;  /* Firefox */
-    
-        &::-webkit-scrollbar { 
-            display: none;  /* Safari and Chrome */
-        }
-    }
 
     &__overlay{
-        background: no-repeat url(./Images/bsa_home_ristorante_maschera.png);
+        background-color: $color-black;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100vh;
         opacity: .8;
+
+        &-image{
+            @include image-cover;
+            height: 100%;
+            object-position: center;
+
+            &-container{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+            }
+        }
     }
 
     &__image-container{
-        position: sticky;
-        top: 0;
         width: 100%;
         height: 100vh;
         z-index: -2;
@@ -1265,12 +1294,27 @@ body{
         }
     }
 
+    &__content{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        box-sizing: border-box;
+    }
+
     &__header{
         color: $color-pale-silver;
         font-family: $font-family-tertiary;
         font-size: 4.8rem;
         font-weight: 400;
         text-align: center;
+        margin: 0;
 
         &-container{
             width: 100%;
@@ -1278,29 +1322,23 @@ body{
             display: flex;
             justify-content: center;
             align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     }
 
     &__main{
-        width: 35%;
-        height: 100vh;
+        width: 34%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: start;
-        gap: 4rem;
-        
-        &-container{
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            box-sizing: border-box;
-        }
 
         &-content{
             font-family: $font-family-secondary;
             font-size: 2rem;
-            width: 42%;
+            width: 43%;
             line-height: 2;
             letter-spacing: .05rem;
             margin: 0;
@@ -1308,8 +1346,11 @@ body{
     }
 
     &__link{
-        gap: 6rem;
+        gap: 4rem;
 
+        &-container{
+            width: 34%;
+        }
         &-name{
             color: $color-white;
             text-align: center;
@@ -1700,6 +1741,10 @@ body{
             }
         }
 
+        &--main{
+            transform: scale(1.2);
+        }
+
         &--secondary{
             width: 11.236rem;
 
@@ -1825,11 +1870,12 @@ body{
 
         &--one{
             font-size: 4.92rem;
-            letter-spacing: -.2;
+            letter-spacing: -.2rem;
         }
 
         &--two{
             font-size: 11.52rem;
+            letter-spacing: -.2rem;
         }
     }
 
@@ -2288,9 +2334,6 @@ body{
     display: none;
 }
 
-.scroll-image-scale{
-    transform: scale(1.2);
-}
 
 
 
@@ -2524,11 +2567,11 @@ body{
 
             &-header{
 
-                &--one{
+                &--two{
                     font-size: 7.56rem;
                 }
 
-                &--two{
+                &--one, &--three{
                     font-size: 4.32rem;
                 }
             }
@@ -3054,11 +3097,11 @@ body{
 
             &-header{
 
-                &--one{
+                &--two{
                     font-size: 6.7rem;
                 }
 
-                &--two{
+                &--one, &--three{
                     font-size: 4rem;
                 }
             }
@@ -3245,11 +3288,11 @@ body{
 
             &-header{
 
-                &--one{
+                &--two{
                     font-size: 5.985rem;
                 }
 
-                &--two{
+                &--one, &--three{
                     font-size: 3.42rem;
                 }
             }
@@ -3495,11 +3538,11 @@ body{
                     text-align: center;
                 }
 
-                &--one{
+                &--two{
                     font-size: 14.5rem;
                 }
 
-                &--two{
+                &--one, &--three{
                     font-size: 8.2rem;
                 }
             }
@@ -3633,11 +3676,11 @@ body{
 
             &-header{
 
-                &--one{
+                &--two{
                     font-size: 12.5rem;
                 }
 
-                &--two{
+                &--one, &--three{
                     font-size: 7.2rem;
                 }
             }
@@ -3790,11 +3833,11 @@ body{
 
             &-header{
 
-                &--one{
+                &--two{
                     font-size: 10rem;
                 }
 
-                &--two{
+                &--one, &--three{
                     font-size: 6rem;
                 }
             }
@@ -3860,12 +3903,12 @@ body{
     .hero{
         &__header{
                 
-            &--one{
+            &--two{
                 letter-spacing: -.3rem;
                 padding-bottom: 31.5vw;
             }
             
-            &--two{
+            &--one, &--three{
                 letter-spacing: -.4rem;
                 padding-top: 5.5vw;
             }
@@ -4030,11 +4073,11 @@ body{
 
             &-header{
 
-                &--one{
+                &--two{
                     font-size: 6rem;
                 }
 
-                &--two{
+                &--one, &--three{
                     font-size: 3.4rem;
                 }
             }
